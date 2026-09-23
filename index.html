@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ron Delhaye — Wilderness, in Golden Light</title>
+<meta name="description" content="Limited-edition landscape photography by Ron Delhaye. Golden aspen groves and Colorado wilderness, printed, framed, and delivered to collectors.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0b0c; --bg2:#111113; --ink:#f2ede1; --ink-dim:#a9a294;
+  --gold:#c9a35c; --line:rgba(201,163,92,.22);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased}
+.serif{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500}
+a{color:inherit}
+img{display:block;max-width:100%}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;
+  padding:1.1rem 1.6rem;background:linear-gradient(rgba(5,5,6,.72),rgba(5,5,6,0));transition:background .3s}
+nav .brand{font-family:'Cormorant Garamond',serif;font-size:1.25rem;letter-spacing:.14em;text-transform:uppercase}
+nav .links{display:flex;gap:1.6rem;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase}
+nav .links a{text-decoration:none;color:var(--ink-dim);transition:color .25s}
+nav .links a:hover{color:var(--gold)}
+@media(max-width:640px){nav .links{gap:1rem;font-size:.68rem}}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden}
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.hero .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,5,6,.35) 0%,rgba(5,5,6,.05) 40%,rgba(5,5,6,.88) 100%)}
+.hero .copy{position:relative;z-index:2;padding:0 1.6rem 16vh;width:100%;max-width:1200px;margin:0 auto}
+.hero h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(3rem,10vw,7rem);line-height:1;letter-spacing:.02em}
+.hero p.tag{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.2rem,3.4vw,1.9rem);color:var(--gold);margin-top:.6rem}
+.hero .scroll{position:absolute;bottom:1.6rem;left:50%;transform:translateX(-50%);z-index:2;color:var(--ink-dim);
+  font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;animation:bob 2.6s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+
+/* sections */
+section{padding:6rem 1.6rem;max-width:1200px;margin:0 auto}
+.kicker{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(2rem,5.5vw,3.2rem);line-height:1.15;margin-bottom:1.2rem}
+.lede{color:var(--ink-dim);max-width:36rem;font-size:1.02rem}
+
+/* gallery */
+#gallery{max-width:1400px}
+.grid{columns:3 300px;column-gap:1.1rem;margin-top:2.6rem}
+.tile{break-inside:avoid;margin-bottom:1.1rem;position:relative;overflow:hidden;cursor:zoom-in;background:var(--bg2)}
+.tile img{width:100%;height:auto;transition:transform .8s cubic-bezier(.2,.6,.2,1),filter .5s;filter:saturate(1.02)}
+.tile:hover img{transform:scale(1.035)}
+.tile .num{position:absolute;left:.9rem;bottom:.7rem;font-family:'Cormorant Garamond',serif;font-size:1rem;color:rgba(242,237,225,.85);opacity:0;transition:opacity .4s;text-shadow:0 1px 8px rgba(0,0,0,.7)}
+.tile:hover .num{opacity:1}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(4,4,5,.96);display:none;align-items:center;justify-content:center;flex-direction:column}
+.lb.open{display:flex}
+.lb img{max-width:min(94vw,1600px);max-height:82vh;object-fit:contain;box-shadow:0 30px 90px rgba(0,0,0,.6)}
+.lb .cap{margin-top:1rem;font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--ink-dim)}
+.lb .cap b{color:var(--ink);font-weight:500}
+.lb button{position:absolute;background:none;border:none;color:var(--ink-dim);font-size:2rem;cursor:pointer;padding:1rem;transition:color .25s;font-family:'Inter',sans-serif}
+.lb button:hover{color:var(--gold)}
+.lb .close{top:.4rem;right:.6rem}
+.lb .prev{left:.2rem;top:50%;transform:translateY(-50%)}
+.lb .next{right:.2rem;top:50%;transform:translateY(-50%)}
+.lb .count{position:absolute;top:1.4rem;left:1.6rem;font-size:.75rem;letter-spacing:.25em;color:var(--ink-dim)}
+
+/* collect */
+#collect{background:var(--bg2);max-width:none}
+#collect .inner{max-width:1200px;margin:0 auto}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem;margin-top:2.6rem}
+.card{border:1px solid var(--line);padding:2rem 1.8rem;background:rgba(255,255,255,.015)}
+.card h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:500;margin-bottom:.6rem;color:var(--gold)}
+.card p{color:var(--ink-dim);font-size:.95rem}
+.cta-row{margin-top:2.8rem;display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
+.btn{display:inline-block;padding:.95rem 2.2rem;border:1px solid var(--gold);color:var(--gold);text-decoration:none;
+  font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;transition:all .3s}
+.btn:hover{background:var(--gold);color:#0b0b0c}
+.btn.ghost{border-color:rgba(201,163,92,.4);color:var(--ink-dim)}
+.note{margin-top:1.2rem;font-size:.85rem;color:var(--ink-dim);font-style:italic}
+
+/* wall preview teaser */
+#wall-preview .frame{border:1px dashed var(--line);padding:3rem 2rem;text-align:center;margin-top:1rem}
+#wall-preview .frame p{color:var(--ink-dim);max-width:30rem;margin:0 auto 1.6rem}
+.btn.disabled{opacity:.45;pointer-events:none}
+
+/* about */
+#about .cols{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+#about img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover}
+#about p{color:var(--ink-dim);margin-bottom:1.2rem;font-size:1.02rem}
+#about p strong{color:var(--ink);font-weight:400}
+@media(max-width:760px){#about .cols{grid-template-columns:1fr}}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:3rem 1.6rem;text-align:center;color:var(--ink-dim);font-size:.85rem}
+footer .sig{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--ink);margin-bottom:.4rem}
+footer .colophon{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;margin-top:.8rem;color:rgba(169,162,148,.6)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">Ron Delhaye</div>
+  <div class="links">
+    <a href="#gallery">Gallery</a>
+    <a href="#collect">Collect</a>
+    <a href="#about">About</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <img class="bg" src="images/full/Working-9.jpg" alt="Sunlight breaking through a golden aspen grove — Photography by Ron Delhaye" fetchpriority="high">
+  <div class="veil"></div>
+  <div class="copy">
+    <h1>Ron Delhaye</h1>
+    <p class="tag">Wilderness, in golden light.</p>
+  </div>
+  <div class="scroll">Scroll</div>
+</header>
+
+<section id="gallery">
+  <div class="kicker">The Collection</div>
+  <h2>Golden Hour, Held Still</h2>
+  <p class="lede">Thirty-one frames from the high country — aspen groves at peak color, valleys at first light, the brief minutes when the land glows. Click any frame to view it full.</p>
+  <div class="grid" id="grid"></div>
+</section>
+
+<div class="lb" id="lb" role="dialog" aria-label="Image viewer">
+  <div class="count" id="lbCount"></div>
+  <button class="close" id="lbClose" aria-label="Close">×</button>
+  <button class="prev" id="lbPrev" aria-label="Previous">‹</button>
+  <img id="lbImg" src="" alt="">
+  <button class="next" id="lbNext" aria-label="Next">›</button>
+  <div class="cap" id="lbCap"></div>
+</div>
+
+<section id="collect">
+  <div class="inner">
+    <div class="kicker">For Collectors</div>
+    <h2>Own the Light</h2>
+    <p class="lede">Every piece is offered as a signed, limited-edition print — produced to museum standard, framed by hand, and delivered ready to hang.</p>
+    <div class="cards">
+      <div class="card">
+        <h3>Limited Editions</h3>
+        <p>Small, numbered runs. Each print is signed and accompanied by a certificate of authenticity. When an edition sells out, it never prints again.</p>
+      </div>
+      <div class="card">
+        <h3>Custom Framing</h3>
+        <p>Choose your finish — gallery black, natural oak, or floated canvas. Every frame is built to archival standard, sized from intimate to statement.</p>
+      </div>
+      <div class="card">
+        <h3>White-Glove Delivery</h3>
+        <p>Prints are produced, framed, and shipped directly to you or your installer, anywhere in the country. Unbox, hang, done.</p>
+      </div>
+    </div>
+    <div class="cta-row">
+      <!-- PLACEHOLDER: replace with Ron's real collector-list address -->
+      <a class="btn" href="mailto:studio@rondelhayestudios.com?subject=Collector%20list%20—%20Ron%20Delhaye">Join the collector list</a>
+      <span class="note">First access to new releases and private editions.</span>
+    </div>
+  </div>
+</section>
+
+<section id="wall-preview">
+  <div class="kicker">Coming Soon</div>
+  <h2>See It on Your Wall</h2>
+  <div class="frame">
+    <p>An interactive preview is on its way — true to scale, in your room, in your sizes, before you ever commit. The work, on your wall, before it ships.</p>
+    <span class="btn ghost disabled">In the studio — coming soon</span>
+  </div>
+</section>
+
+<section id="about">
+  <div class="cols">
+    <img src="images/thumb/Working-31.jpg" alt="Golden valley with a creek at peak autumn color — Photography by Ron Delhaye" loading="lazy">
+    <div>
+      <div class="kicker">About</div>
+      <h2>From Weddings to Wilderness</h2>
+      <p><strong>Ron Delhaye</strong> is a Colorado-based photographer who traded ballrooms for backcountry. After years behind the lens at weddings, he followed the light into the high country — and stayed.</p>
+      <p>His work is about patience: returning to the same grove, the same valley, until the land shows you something. What you see here is what was there — golden hour, held still.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="sig serif">Photography by Ron Delhaye</div>
+  <div>Colorado, USA</div>
+  <div class="colophon">An Ad Astra Media publication</div>
+</footer>
+
+<script>
+const PHOTOS = Array.from({length:31},(_,i)=>'Working-'+(i+1)+'.jpg');
+const grid = document.getElementById('grid');
+PHOTOS.forEach((f,i)=>{
+  const d=document.createElement('div'); d.className='tile';
+  const img=document.createElement('img');
+  img.src='images/thumb/'+f; img.alt='Landscape photograph No. '+(i+1)+' — Photography by Ron Delhaye';
+  img.loading='lazy';
+  const n=document.createElement('div'); n.className='num'; n.textContent='No. '+(i+1);
+  d.appendChild(img); d.appendChild(n);
+  d.addEventListener('click',()=>openLB(i));
+  grid.appendChild(d);
+});
+
+const lb=document.getElementById('lb'), lbImg=document.getElementById('lbImg'),
+      lbCap=document.getElementById('lbCap'), lbCount=document.getElementById('lbCount');
+let cur=0;
+function preload(i){ const p=new Image(); p.src='images/full/'+PHOTOS[(i+PHOTOS.length)%PHOTOS.length]; }
+function openLB(i){
+  cur=(i+PHOTOS.length)%PHOTOS.length;
+  lbImg.src='images/full/'+PHOTOS[cur];
+  lbImg.alt='Landscape photograph No. '+(cur+1)+' — Photography by Ron Delhaye';
+  lbCap.innerHTML='<b>No. '+(cur+1)+'</b> · Photography by Ron Delhaye';
+  lbCount.textContent=(cur+1)+' / '+PHOTOS.length;
+  lb.classList.add('open'); document.body.style.overflow='hidden';
+  preload(cur+1); preload(cur-1);
+}
+function closeLB(){ lb.classList.remove('open'); document.body.style.overflow=''; }
+document.getElementById('lbClose').onclick=closeLB;
+document.getElementById('lbPrev').onclick=e=>{e.stopPropagation();openLB(cur-1)};
+document.getElementById('lbNext').onclick=e=>{e.stopPropagation();openLB(cur+1)};
+lb.addEventListener('click',e=>{ if(e.target===lb) closeLB(); });
+document.addEventListener('keydown',e=>{
+  if(!lb.classList.contains('open')) return;
+  if(e.key==='Escape') closeLB();
+  if(e.key==='ArrowLeft') openLB(cur-1);
+  if(e.key==='ArrowRight') openLB(cur+1);
+});
+let tx=0;
+lb.addEventListener('touchstart',e=>{tx=e.changedTouches[0].clientX},{passive:true});
+lb.addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].clientX-tx;
+  if(Math.abs(dx)>50) openLB(cur+(dx<0?1:-1));
+},{passive:true});
+</script>
+</body>
+</html>
