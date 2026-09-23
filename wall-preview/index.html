@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ron Delhaye Studios — Wall Preview</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0c0c0e">
+<link rel="manifest" href="wall-preview-assets/manifest.json">
+<link rel="apple-touch-icon" href="wall-preview-assets/apple-touch-icon.png">
+<style>
+  :root{
+    --bg:#0d1116; --panel:#141a21; --panel2:#0f1419; --ink:#eef0ea; --muted:#9aa3ad;
+    --gold:#c8a45d; --gold-dim:#8a6f3a; --line:#232c36; --serif:"Didot","Bodoni MT","Playfair Display",Georgia,"Times New Roman",serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  header.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 28px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#11161c,#0d1116)}
+  .brand h1{font-family:var(--serif);font-weight:400;font-size:22px;margin:0;letter-spacing:.06em}
+  .brand h1 .gold{color:var(--gold)}
+  .brand p{margin:4px 0 0;font-size:12px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase}
+  .badge{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#0d1116;background:var(--gold);padding:6px 12px;border-radius:999px;font-weight:700;white-space:nowrap}
+  main{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:0;min-height:calc(100vh - 73px)}
+  /* ---------- stage ---------- */
+  .stage-wrap{display:flex;align-items:center;justify-content:center;padding:28px;background:radial-gradient(1200px 600px at 50% 20%,#161d25,#0b0e12)}
+  .stage{position:relative;max-width:1100px;width:100%;box-shadow:0 40px 90px rgba(0,0,0,.55);border:1px solid #1d242d;border-radius:4px;overflow:hidden;background:#222}
+  .stage img.room{display:block;width:100%;height:auto;user-select:none}
+  .stage.fallback{background:linear-gradient(180deg,#e8e2d6 0 78%,#b99b6f 78%,#8a6f4d 100%)}
+  .stage.fallback img.room{display:none}
+  /* the print */
+  #print{position:absolute;transform:translate(-50%,-50%);background:#000;transition:box-shadow .25s ease}
+  #print img.art{display:block;width:100%;height:100%;object-fit:cover}
+  #print .glass{position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,rgba(255,255,255,.10) 0%,rgba(255,255,255,0) 28%)}
+  #print.shadow{box-shadow:0 34px 60px -12px rgba(0,0,0,.5),0 10px 24px rgba(0,0,0,.35)}
+  #print.frame-black{background:#0a0a0a}
+  #print.frame-white{background:#f4f1ea}
+  #print.frame-oak{background:linear-gradient(135deg,#a97c4e,#8a5f36 40%,#b08a58 70%,#7c542e)}
+  #print.frame-canvas{background:transparent}
+  #print.frame-canvas img.art{box-shadow:inset 0 0 0 1px rgba(0,0,0,.25)}
+  #dims{position:absolute;transform:translateX(-50%);white-space:nowrap;font-size:12px;letter-spacing:.08em;color:#fff;background:rgba(10,13,17,.72);border:1px solid rgba(200,164,93,.5);padding:5px 12px;border-radius:999px;pointer-events:none;backdrop-filter:blur(4px)}
+  /* ---------- controls ---------- */
+  aside{background:var(--panel);border-left:1px solid var(--line);padding:24px 22px;overflow-y:auto}
+  aside h2{font-family:var(--serif);font-weight:400;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:26px 0 12px}
+  aside h2:first-child{margin-top:0}
+  .thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .thumb{border:2px solid transparent;border-radius:6px;overflow:hidden;cursor:pointer;background:#000;padding:0;position:relative;aspect-ratio:3/2}
+  .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+  .thumb span{position:absolute;left:0;right:0;bottom:0;font-size:10px;letter-spacing:.04em;background:rgba(0,0,0,.65);color:#fff;padding:4px 6px;text-align:center}
+  .thumb.active{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 6px 18px rgba(200,164,93,.25)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{border:1px solid var(--line);background:var(--panel2);color:var(--ink);border-radius:999px;padding:9px 14px;font-size:13px;cursor:pointer;letter-spacing:.03em}
+  .chip.active{border-color:var(--gold);color:var(--gold);background:rgba(200,164,93,.08)}
+  .row{display:flex;align-items:center;gap:10px;margin:10px 0}
+  .row label{font-size:13px;color:var(--muted);min-width:0}
+  input[type=number]{width:84px;background:var(--panel2);border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:9px 10px;font-size:14px}
+  input[type=range]{flex:1;accent-color:var(--gold)}
+  .hint{font-size:12px;color:var(--muted);line-height:1.55;margin:8px 0 0}
+  .hint b{color:var(--ink);font-weight:600}
+  .upload{display:block;border:1px dashed #3a4552;border-radius:10px;padding:14px;text-align:center;cursor:pointer;font-size:13px;color:var(--muted);margin-top:10px}
+  .upload:hover{border-color:var(--gold);color:var(--ink)}
+  .upload input{display:none}
+  .scale-readout{font-size:12px;color:var(--muted);background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin-top:12px;line-height:1.6}
+  .scale-readout b{color:var(--gold);font-weight:600}
+  .reserve{width:100%;margin-top:26px;padding:15px;border:none;border-radius:10px;font-size:14px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:#5c5344;background:#2a2f36;cursor:not-allowed}
+  .reserve small{display:block;font-size:10px;letter-spacing:.14em;margin-top:5px;color:#7d7462;font-weight:400}
+  footer{padding:14px 28px;border-top:1px solid var(--line);font-size:11px;color:#5f6873;letter-spacing:.06em;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  @media (max-width:960px){main{grid-template-columns:1fr}aside{border-left:none;border-top:1px solid var(--line)}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <h1>RON DELHAYE <span class="gold">STUDIOS</span></h1>
+    <p>Wall Preview &mdash; see it in your space</p>
+  </div>
+  <div class="badge">Private prototype</div>
+</header>
+<main>
+  <div class="stage-wrap">
+    <div class="stage" id="stage">
+      <img class="room" id="roomImg" alt="Room wall">
+      <div id="print"><img class="art" id="artImg" alt="Artwork"><div class="glass"></div></div>
+      <div id="dims"></div>
+    </div>
+  </div>
+  <aside>
+    <h2>1 &mdash; Artwork</h2>
+    <div class="thumbs" id="artThumbs"></div>
+    <p class="hint">To add more pieces, drop JPGs into <b>wall-preview-assets/</b> and add one line to the <b>ARTWORKS</b> list in this file.</p>
+
+    <h2>2 &mdash; Room</h2>
+    <div class="thumbs" id="roomThumbs"></div>
+    <label class="upload">+ Upload a photo of your own wall
+      <input type="file" id="wallUpload" accept="image/*">
+    </label>
+    <p class="hint">Tip: photograph your wall <b>straight-on</b>, filling the frame. Then set the wall width below.</p>
+
+    <h2>3 &mdash; Wall calibration</h2>
+    <div class="row">
+      <label for="wallFt">Wall width shown in photo</label>
+      <input type="number" id="wallFt" value="12" min="4" max="40" step="0.5"> <span style="color:var(--muted);font-size:13px">ft</span>
+    </div>
+    <div class="row">
+      <label for="nudge">Hang height nudge</label>
+      <input type="range" id="nudge" min="-12" max="12" value="0" step="1">
+      <span id="nudgeVal" style="font-size:12px;color:var(--muted);width:44px;text-align:right">0&Prime;</span>
+    </div>
+    <p class="hint">Prints are centered at <b>57&Prime;</b> &mdash; the gallery standard &mdash; measured from the floor. Nudge fine-tunes it.</p>
+    <div class="scale-readout" id="scaleReadout"></div>
+
+    <h2>4 &mdash; Print size</h2>
+    <div class="chips" id="sizeChips"></div>
+    <p class="hint">Sizes auto-orient to the artwork. The image is cropped to the print&rsquo;s proportions, the way a real print would be.</p>
+
+    <h2>5 &mdash; Frame</h2>
+    <div class="chips" id="frameChips"></div>
+
+    <button class="reserve" disabled title="Reservations open soon">Reserve this piece<small>Online reservations &mdash; coming soon</small></button>
+  </aside>
+</main>
+<footer>
+  <span>True-to-scale preview &middot; calibrated to your wall</span>
+  <span>&copy; Ron Delhaye Studios &middot; prototype &mdash; not for publication</span>
+</footer>
+<script>
+/* ============ data ============ */
+var ASSET = 'wall-preview-assets/';
+/* To add more pieces: copy the JPG into wall-preview-assets/ and add one line here.
+   w/h are the photo's pixel dimensions (used for orientation + aspect). */
+var ARTWORKS = [
+  { id:'cabin',  title:'Aspen Grove \u2014 Cabin in the Gold', file:'aspen-grove-cabin.jpg', w:3000, h:2000 },
+  { id:'creek',  title:'Creek Valley at Peak Color',           file:'creek-valley.jpg',      w:3000, h:2000 },
+  { id:'sun',    title:'Sunburst Through the Aspens',          file:'sunburst-grove.jpg',    w:3000, h:2000 }
+];
+/* wallFt = how many feet of real wall span the full width of the room photo.
+   Rooms were generated straight-on, floor at the bottom edge, wall edge-to-edge. */
+var ROOMS = [
+  { id:'modern',  title:'Modern Living',  file:'room-modern.webp',  wallFt:12 },
+  { id:'bedroom', title:'Bedroom Retreat',file:'room-bedroom.webp', wallFt:12 },
+  { id:'lodge',   title:'Mountain Lodge', file:'room-lodge.webp',   wallFt:12 }
+];
+var SIZES = [
+  { label:'16 \u00d7 20', w:16, h:20 },
+  { label:'24 \u00d7 36', w:24, h:36 },
+  { label:'30 \u00d7 40', w:30, h:40 },
+  { label:'40 \u00d7 60', w:40, h:60 }
+];
+var FRAMES = [
+  { id:'black',  label:'Black',         frameIn:1.0, cls:'frame-black'  },
+  { id:'white',  label:'White',         frameIn:1.0, cls:'frame-white'  },
+  { id:'oak',    label:'Natural Oak',   frameIn:1.5, cls:'frame-oak'    },
+  { id:'canvas', label:'Gallery Canvas',frameIn:0,   cls:'frame-canvas' }
+];
+var GALLERY_CENTER_IN = 57; /* gallery standard: print center 57" from floor */
+
+/* ============ state ============ */
+var state = { art:0, room:0, customRoomURL:null, wallFt:12, nudge:0, size:1, frame:'black' };
+
+/* ============ helpers ============ */
+function $(id){ return document.getElementById(id); }
+function el(tag, cls, text){ var e=document.createElement(tag); if(cls)e.className=cls; if(text!=null)e.textContent=text; return e; }
+
+/* ============ builders ============ */
+function buildPickers(){
+  var at = $('artThumbs');
+  ARTWORKS.forEach(function(a,i){
+    var b = el('button','thumb'+(i===state.art?' active':'')); b.title=a.title;
+    var im = el('img'); im.src=ASSET+a.file; im.alt=a.title; b.appendChild(im);
+    b.appendChild(el('span',null,a.title));
+    b.onclick=function(){ state.art=i; refreshActive(); render(); };
+    at.appendChild(b);
+  });
+  var rt = $('roomThumbs');
+  ROOMS.forEach(function(r,i){
+    var b = el('button','thumb'+(i===state.room&&!state.customRoomURL?' active':'')); b.title=r.title;
+    var im = el('img'); im.src=ASSET+r.file; im.alt=r.title; b.appendChild(im);
+    b.appendChild(el('span',null,r.title));
+    b.onclick=function(){ state.room=i; state.customRoomURL=null; $('wallFt').value=r.wallFt; state.wallFt=r.wallFt; refreshActive(); render(); };
+    rt.appendChild(b);
+  });
+  var sc = $('sizeChips');
+  SIZES.forEach(function(s,i){
+    var c = el('button','chip'+(i===state.size?' active':''), s.label+'\u2033');
+    c.onclick=function(){ state.size=i; refreshActive(); render(); };
+    sc.appendChild(c);
+  });
+  var fc = $('frameChips');
+  FRAMES.forEach(function(f){
+    var c = el('button','chip'+(f.id===state.frame?' active':''), f.label);
+    c.onclick=function(){ state.frame=f.id; refreshActive(); render(); };
+    fc.appendChild(c);
+  });
+}
+function refreshActive(){
+  var lists = [$('artThumbs'),$('roomThumbs'),$('sizeChips'),$('frameChips')];
+  var idx = [state.art, state.customRoomURL?-1:state.room, state.size, FRAMES.findIndex(function(f){return f.id===state.frame;})];
+  lists.forEach(function(list,k){
+    Array.prototype.forEach.call(list.children,function(child,j){
+      child.classList.toggle('active', j===idx[k]);
+    });
+  });
+}
+
+/* ============ core render: true-to-scale ============ */
+function render(){
+  var stage=$('stage'), roomImg=$('roomImg'), print=$('print'), art=$('artImg'), dims=$('dims');
+  var a = ARTWORKS[state.art];
+  var s = SIZES[state.size];
+  var f = FRAMES.filter(function(x){return x.id===state.frame;})[0];
+
+  roomImg.src = state.customRoomURL || ASSET + ROOMS[state.room].file;
+  art.src = ASSET + a.file; art.alt = a.title;
+
+  /* frame look */
+  print.className = f.cls + ' shadow';
+  print.querySelector('.glass').style.display = (f.id==='canvas') ? 'none' : 'block';
+
+  var dispW = roomImg.clientWidth, dispH = roomImg.clientHeight;
+  if(!dispW || !dispH) return; /* image not laid out yet; onload will re-render */
+
+  /* orient the print size to the artwork (all current pieces are landscape) */
+  var landscape = a.w >= a.h;
+  var pw = landscape ? Math.max(s.w,s.h) : Math.min(s.w,s.h);
+  var ph = landscape ? Math.min(s.w,s.h) : Math.max(s.w,s.h);
+
+  var pxPerIn = dispW / (state.wallFt*12);
+  var framePx = f.frameIn * pxPerIn;
+  var outerW = (pw + 2*f.frameIn) * pxPerIn;
+  var outerH = (ph + 2*f.frameIn) * pxPerIn;
+
+  print.style.width = outerW+'px';
+  print.style.height = outerH+'px';
+  print.style.padding = framePx+'px';
+  print.style.left = '50%';
+
+  /* vertical: center at 57" above floor (floor = bottom edge of photo) */
+  var centerY = dispH - (GALLERY_CENTER_IN + state.nudge) * pxPerIn;
+  centerY = Math.max(outerH/2+10, Math.min(dispH-outerH/2-10, centerY));
+  print.style.top = centerY+'px';
+
+  /* dims label tucked just under the frame */
+  dims.textContent = pw+'\u2033 \u00d7 '+ph+'\u2033 \u00b7 '+f.label;
+  dims.style.left = '50%';
+  var labelTop = centerY + outerH/2 + 12;
+  dims.style.top = Math.min(labelTop, dispH - 36)+'px';
+
+  $('scaleReadout').innerHTML =
+    'Wall: <b>'+state.wallFt+' ft</b> across the photo \u00b7 '+
+    'print <b>'+pw+'\u2033 \u00d7 '+ph+'\u2033</b> rendered true to scale \u00b7 '+
+    'center hung at <b>'+(GALLERY_CENTER_IN+state.nudge)+'\u2033</b> from the floor';
+}
+
+/* ============ wiring ============ */
+function init(){
+  buildPickers();
+  $('wallFt').addEventListener('input', function(e){
+    var v=parseFloat(e.target.value); if(v>=4&&v<=40){ state.wallFt=v; render(); }
+  });
+  $('nudge').addEventListener('input', function(e){
+    state.nudge=parseInt(e.target.value,10);
+    $('nudgeVal').textContent = (state.nudge>0?'+':'')+state.nudge+'\u2033';
+    render();
+  });
+  $('wallUpload').addEventListener('change', function(e){
+    var file=e.target.files[0]; if(!file) return;
+    if(state.customRoomURL) URL.revokeObjectURL(state.customRoomURL);
+    state.customRoomURL=URL.createObjectURL(file);
+    /* keep a sensible default; the client measures their own wall */
+    if(!$('wallFt').value || parseFloat($('wallFt').value)===12){ $('wallFt').value=12; state.wallFt=12; }
+    refreshActive(); render();
+  });
+  var roomImg=$('roomImg');
+  roomImg.addEventListener('load', render);
+  roomImg.addEventListener('error', function(){ $('stage').classList.add('fallback'); });
+  window.addEventListener('resize', render);
+  render();
+}
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>
