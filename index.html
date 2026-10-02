@@ -24,6 +24,9 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
+/* photo protection: deter casual saving (right-click / drag / long-press).
+   Cannot stop screenshots or devtools — see README. */
+img{-webkit-user-drag:none;user-select:none;-webkit-user-select:none;-moz-user-select:none;-webkit-touch-callout:none}
 body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased}
 .serif{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500}
 a{color:inherit}
@@ -67,7 +70,9 @@ h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(2rem,5
 /* lightbox */
 .lb{position:fixed;inset:0;z-index:100;background:rgba(4,4,5,.96);display:none;align-items:center;justify-content:center;flex-direction:column}
 .lb.open{display:flex}
-.lb img{max-width:min(94vw,1600px);max-height:82vh;object-fit:contain;box-shadow:0 30px 90px rgba(0,0,0,.6)}
+.lb-frame{position:relative;line-height:0}
+.lb-frame img{max-width:min(94vw,1600px);max-height:82vh;object-fit:contain;box-shadow:0 30px 90px rgba(0,0,0,.6)}
+.lb-shield{position:absolute;inset:0;z-index:2}
 .lb .cap{margin-top:1rem;font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--ink-dim)}
 .lb .cap b{color:var(--ink);font-weight:500}
 .lb button{position:absolute;background:none;border:none;color:var(--ink-dim);font-size:2rem;cursor:pointer;padding:1rem;transition:color .25s;font-family:'Inter',sans-serif}
@@ -143,7 +148,7 @@ footer .also a{color:var(--gold);text-decoration:none;border-bottom:1px solid va
   <div class="count" id="lbCount"></div>
   <button class="close" id="lbClose" aria-label="Close">×</button>
   <button class="prev" id="lbPrev" aria-label="Previous">‹</button>
-  <img id="lbImg" src="" alt="">
+  <div class="lb-frame"><img id="lbImg" src="" alt=""><div class="lb-shield"></div></div>
   <button class="next" id="lbNext" aria-label="Next">›</button>
   <div class="cap" id="lbCap"></div>
 </div>
@@ -247,6 +252,11 @@ lb.addEventListener('touchend',e=>{
   const dx=e.changedTouches[0].clientX-tx;
   if(Math.abs(dx)>50) openLB(cur+(dx<0?1:-1));
 },{passive:true});
+
+/* photo protection: block right-click and drag-to-save on images.
+   Deters casual theft only — screenshots and devtools always work. */
+document.addEventListener('contextmenu',e=>{ if(e.target.closest('img')) e.preventDefault(); });
+document.addEventListener('dragstart',e=>{ if(e.target.closest('img')) e.preventDefault(); });
 </script>
 </body>
 </html>
