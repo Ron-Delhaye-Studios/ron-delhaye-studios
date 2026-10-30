@@ -1,7 +1,8 @@
 # Ron Delhaye Studios — Landscape Portfolio
 
 Public portfolio site for Ron Delhaye's landscape photography.
-Live: https://whitewizard888.github.io/ron-delhaye-studios/
+Live: https://ron-delhaye-studios.github.io/ron-delhaye-studios/
+Custom domain: https://thegoldenhour.photography/ — canonical address once DNS verifies.
 
 - `index.html` — single-page gallery site (hero, gallery + lightbox, Collect, wall-preview teaser, About, footer)
 - `images/full/` — 31 optimized images, max 1600px, for hero / lightbox / about
