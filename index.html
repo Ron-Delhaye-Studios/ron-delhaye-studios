@@ -115,6 +115,7 @@ footer .colophon{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;m
 footer .also{margin-top:.9rem;font-size:.9rem;color:var(--ink-dim)}
 footer .also a{color:var(--gold);text-decoration:none;border-bottom:1px solid var(--line)}
 </style>
+<link rel="stylesheet" href="assets/luxury.css">
 </head>
 <body>
 
@@ -144,7 +145,7 @@ footer .also a{color:var(--gold);text-decoration:none;border-bottom:1px solid va
   <div class="grid" id="grid"></div>
 </section>
 
-<div class="lb" id="lb" role="dialog" aria-label="Image viewer">
+<div class="lb" id="lb" role="dialog" aria-label="Image viewer" aria-modal="true">
   <div class="count" id="lbCount"></div>
   <button class="close" id="lbClose" aria-label="Close">×</button>
   <button class="prev" id="lbPrev" aria-label="Previous">‹</button>
@@ -213,6 +214,8 @@ const PHOTOS = Array.from({length:31},(_,i)=>'Working-'+(i+1)+'.jpg');
 const grid = document.getElementById('grid');
 PHOTOS.forEach((f,i)=>{
   const d=document.createElement('div'); d.className='tile';
+  d.tabIndex=0; d.setAttribute('role','button'); d.setAttribute('aria-label','View photograph No. '+(i+1));
+  d.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openLB(i)}});
   const img=document.createElement('img');
   img.src='images/thumb/'+f; img.alt='Landscape photograph No. '+(i+1)+' — Photography by Ron Delhaye';
   img.loading='lazy';
@@ -224,24 +227,32 @@ PHOTOS.forEach((f,i)=>{
 
 const lb=document.getElementById('lb'), lbImg=document.getElementById('lbImg'),
       lbCap=document.getElementById('lbCap'), lbCount=document.getElementById('lbCount');
-let cur=0;
+let cur=0, returnFocus=null;
 function preload(i){ const p=new Image(); p.src='images/full/'+PHOTOS[(i+PHOTOS.length)%PHOTOS.length]; }
 function openLB(i){
+  const entering=!lb.classList.contains('open');
+  if(entering) returnFocus=document.activeElement;
   cur=(i+PHOTOS.length)%PHOTOS.length;
   lbImg.src='images/full/'+PHOTOS[cur];
   lbImg.alt='Landscape photograph No. '+(cur+1)+' — Photography by Ron Delhaye';
   lbCap.innerHTML='<b>No. '+(cur+1)+'</b> · Photography by Ron Delhaye';
   lbCount.textContent=(cur+1)+' / '+PHOTOS.length;
   lb.classList.add('open'); document.body.style.overflow='hidden';
+  if(entering) document.getElementById('lbClose').focus();
   preload(cur+1); preload(cur-1);
 }
-function closeLB(){ lb.classList.remove('open'); document.body.style.overflow=''; }
+function closeLB(){ lb.classList.remove('open'); document.body.style.overflow=''; returnFocus?.focus(); }
 document.getElementById('lbClose').onclick=closeLB;
 document.getElementById('lbPrev').onclick=e=>{e.stopPropagation();openLB(cur-1)};
 document.getElementById('lbNext').onclick=e=>{e.stopPropagation();openLB(cur+1)};
 lb.addEventListener('click',e=>{ if(e.target===lb) closeLB(); });
 document.addEventListener('keydown',e=>{
   if(!lb.classList.contains('open')) return;
+  if(e.key==='Tab'){
+    const controls=[...lb.querySelectorAll('button')];const first=controls[0],last=controls[controls.length-1];
+    if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}
+    else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}
+  }
   if(e.key==='Escape') closeLB();
   if(e.key==='ArrowLeft') openLB(cur-1);
   if(e.key==='ArrowRight') openLB(cur+1);

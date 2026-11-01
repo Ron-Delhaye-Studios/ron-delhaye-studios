@@ -1,0 +1,40 @@
+/* THALEIA 0029 §II.A mapped to the Studios gallery and wall-preview controls.
+   Editorial copy, image selection, collection terms and destinations are unchanged. */
+:root{--bg:#0a0a0b;--bg2:#121214;--ink:#f4f4f5;--ink-dim:#a1a1aa;--gold:#c5a059;--line:rgba(255,255,255,.14)}
+body{font-weight:400}
+:focus-visible{outline:2px solid var(--gold);outline-offset:5px}
+nav{padding: .65rem max(1.5rem,env(safe-area-inset-left));background:rgba(10,10,11,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(18px)}
+nav .links{gap:clamp(.75rem,3vw,2rem);font-size:.75rem;letter-spacing:.14em}
+nav .links a{display:inline-flex;align-items:center;min-height:44px}
+.hero .veil{background:linear-gradient(180deg,rgba(10,10,11,.2) 0%,rgba(10,10,11,.08) 35%,rgba(10,10,11,.9) 72%,#0a0a0b 100%)}
+.hero .copy{padding-bottom:16vh}
+.hero .scroll{color:var(--ink-dim);animation:none}
+section{padding:clamp(4rem,7vw,7rem) clamp(1.25rem,4vw,3rem);scroll-margin-top:90px}
+.kicker{letter-spacing:.22em}
+h2{letter-spacing:-.015em}
+.lede{max-width:60ch;line-height:1.8}
+.grid{column-gap:1.5rem;margin-top:3rem}
+.tile{padding:clamp(.75rem,1.7vw,1.5rem);margin-bottom:1.5rem;border:1px solid var(--line);background:var(--bg2)}
+.tile img{filter:none;transition:none}
+.tile:hover img{transform:none}
+.tile:hover,.tile:focus-visible{border-color:rgba(197,160,89,.65)}
+.tile .num{position:static;opacity:1;color:var(--ink-dim);text-shadow:none;border-top:1px solid var(--line);margin-top:1.25rem;padding-top:1rem;font-size:1.35rem;line-height:1.35}
+.lb{background:#0a0a0b;padding:4rem 4rem 5rem}
+.lb-frame img{max-width:min(calc(100vw - 8rem),1600px);max-height:calc(100svh - 12rem);box-shadow:none}
+.lb .cap{font-size:1rem;text-align:center;line-height:1.5}
+.lb button{min-width:48px;min-height:48px;background:#121214;border:1px solid var(--line);padding:.25rem;line-height:1;color:var(--ink)}
+.lb .close{top:.75rem;right:.75rem}.lb .prev{left:.75rem}.lb .next{right:.75rem}
+.cards{gap:1.5rem}.card{background:#1a1a1e;border-color:var(--line);padding:2rem}.card p{line-height:1.8}
+.btn{min-height:48px;display:inline-flex;align-items:center;justify-content:center;padding:.8rem 1.5rem;letter-spacing:.16em}
+.btn.ghost{border-color:var(--line);color:var(--ink-dim)}
+#wall-preview .frame{border-style:solid;padding:clamp(2rem,5vw,4rem)}
+footer .colophon{color:var(--ink-dim)}
+/* The preview's geometry and artwork remain controlled by its existing script. */
+body.wall-preview{--panel:#121214;--panel2:#1a1a1e;--muted:#a1a1aa;--gold-dim:#c5a059}
+.wall-preview header.top{background:#0a0a0b;flex-wrap:wrap;padding:1.25rem clamp(1.25rem,4vw,2rem)}
+.wall-preview .stage-wrap{background:#0a0a0b}
+.wall-preview .chip,.wall-preview input[type=number],.wall-preview input[type=range],.wall-preview .upload{min-height:44px}
+.wall-preview .reserve{color:#a1a1aa;background:#1a1a1e}.wall-preview .reserve small,.wall-preview footer{color:#a1a1aa}
+.wall-preview .thumb span{background:#0a0a0b}
+@media(max-width:640px){nav{gap:.25rem;flex-wrap:wrap;padding:.5rem 1.25rem}nav .brand{font-size:1rem}nav .links{gap:1.1rem;letter-spacing:.1em}.lb{padding:4rem .75rem 7rem}.lb-frame img{max-width:calc(100vw - 1.5rem);max-height:calc(100svh - 14rem)}.lb .prev,.lb .next{top:auto;bottom:1rem;transform:none}.lb .cap{padding:0 .5rem}.hero .copy{padding-left:1.25rem;padding-right:1.25rem}.wall-preview .stage-wrap{padding:1rem}.wall-preview .brand h1{font-size:19px}.wall-preview .brand p{letter-spacing:.08em}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
