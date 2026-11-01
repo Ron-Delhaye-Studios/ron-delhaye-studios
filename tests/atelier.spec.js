@@ -88,3 +88,17 @@ test('private viewing room images and AA scan',async ({page}) => {
   for (const button of await page.locator('#roomThumbs button').all()) {await button.click();await imagesLoad(page);}
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBeTruthy();
 });
+
+
+test('Home Screen launch uses the custom-domain root and old shortcuts recover', async ({page,request}) => {
+  await page.goto('/');
+  const manifestURL = await page.locator('link[rel="manifest"]').getAttribute('href');
+  const manifest = await (await request.get(manifestURL)).json();
+  expect(manifest.start_url).toBe('/');
+  expect(manifest.scope).toBe('/');
+  await page.goto(manifest.start_url);
+  await expect(page.locator('.tile')).toHaveCount(31);
+  const legacy = await request.get('/ron-delhaye-studios/');
+  expect(legacy.status()).toBe(200);
+  expect(await legacy.text()).toContain('url=https://thegoldenhour.photography/');
+});
