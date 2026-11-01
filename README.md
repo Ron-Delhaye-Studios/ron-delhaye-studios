@@ -18,7 +18,8 @@ crest, vector favicon, three curated folios, 31-plate catalog and acquisition
 concierge. See [implementation notes](docs/WO-RDS-LUX-03.md) for the source,
 review considerations and validation scope.
 
-- `data/plates-catalog.json` owns titles, telemetry and supplied edition terms.
+- `data/plates-catalog.json` contains numbered plates, confirmed titles and permitted telemetry.
+- `data/artist-titles.json` preserves 46 exact artist titles; `data/plate-title-matches.json` gates their assignment by verified source-sheet matches. See [the title handoff](docs/artist-title-registry.md).
 - `assets/luxury.css` retains the PR2 foundation.
 - `css/luxury-atelier.css` adds the atelier palette, plaque and collector form.
 - `js/atelier-concierge.js` builds the catalog and manages filtering, viewer and
@@ -27,4 +28,6 @@ review considerations and validation scope.
 
 Serve this directory over HTTP (for example `python3 -m http.server 8000`), as
 the gallery loads its catalog with fetch. Run `npm ci`,
-`npx playwright install chromium`, and `npm test` for browser validation.
+`npx playwright install chromium`, and `npm test` for browser validation. Run
+`python -m unittest discover -s tests -p 'test_*.py'` and
+`python scripts/sync_plate_titles.py --check` for the title-mapping boundary.
