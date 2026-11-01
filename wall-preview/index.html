@@ -69,7 +69,9 @@
   footer{padding:14px 28px;border-top:1px solid var(--line);font-size:11px;color:#5f6873;letter-spacing:.06em;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   @media (max-width:960px){main{grid-template-columns:1fr}aside{border-left:none;border-top:1px solid var(--line)}}
 </style>
-<link rel="stylesheet" href="../assets/luxury.css">
+<link rel="stylesheet" href="../assets/luxury.css?v=nov2">
+<link rel="stylesheet" href="../css/luxury-atelier.css?v=nov2">
+<link rel="icon" type="image/svg+xml" href="../images/icons/favicon.svg?v=nov2">
 </head>
 <body class="wall-preview">
 <header class="top">
@@ -90,7 +92,7 @@
   <aside>
     <h2>1 &mdash; Artwork</h2>
     <div class="thumbs" id="artThumbs"></div>
-    <p class="hint">To add more pieces, drop JPGs into <b>wall-preview-assets/</b> and add one line to the <b>ARTWORKS</b> list in this file.</p>
+    <p class="hint">Explore the scale, finish, and placement of selected works in a private interior.</p>
 
     <h2>2 &mdash; Room</h2>
     <div class="thumbs" id="roomThumbs"></div>
@@ -212,8 +214,10 @@ function render(){
   var s = SIZES[state.size];
   var f = FRAMES.filter(function(x){return x.id===state.frame;})[0];
 
-  roomImg.src = state.customRoomURL || ASSET + ROOMS[state.room].file;
-  art.src = ASSET + a.file; art.alt = a.title;
+  var roomSource = state.customRoomURL || ASSET + ROOMS[state.room].file;
+  if (roomImg.getAttribute('src') !== roomSource) roomImg.src = roomSource;
+  if (art.getAttribute('src') !== ASSET + a.file) art.src = ASSET + a.file;
+  art.alt = a.title;
 
   /* frame look */
   print.className = f.cls + ' shadow';

@@ -1,0 +1,38 @@
+/* WO-RDS-LUX-03: palette derived from THALEIA's supplied SVG assets.
+   Extends the PR2 presentation in assets/luxury.css. */
+:root{--bg:#0b0c0e;--bg2:#141518;--ink:#f4efe6;--ink-dim:#b6afa3;--gold:#c6a76a;--line:rgba(198,167,106,.32);--atelier-space:clamp(1.25rem,4vw,3rem)}
+[hidden]{display:none!important}
+button,input,select{font:inherit}
+button{cursor:pointer}
+.rds-brand-lockup{display:inline-flex;align-items:center;min-height:44px;max-width:100%}
+.rds-brand-lockup svg{display:block;width:270px;max-width:100%;height:auto}
+footer .rds-brand-lockup{margin-bottom:.8rem}
+.skip-link{position:fixed;top:-6rem;left:1rem;z-index:200;background:var(--bg);color:var(--ink);padding:1rem}
+.skip-link:focus{top:1rem}
+nav{background:rgba(11,12,14,.98)}
+.hero .veil{background:linear-gradient(180deg,rgba(11,12,14,.2),rgba(11,12,14,.08) 35%,rgba(11,12,14,.94) 72%,var(--bg))}
+.rds-folio-tabs{display:flex;flex-wrap:wrap;gap:.75rem;margin:2rem 0 1rem}
+.rds-folio-tabs button{min-height:48px;padding:.75rem 1rem;border:1px solid var(--line);background:var(--bg2);color:var(--ink-dim);text-align:left}
+.rds-folio-tabs button[aria-pressed=true]{border-color:var(--gold);color:var(--ink);box-shadow:inset 0 -2px var(--gold)}
+#gallery-status{color:var(--ink-dim);font-size:.85rem;min-height:1.7em}
+.tile{width:100%;display:block;text-align:left;color:var(--ink);font:inherit;border-radius:0}
+.tile .num{display:block;font-size:1.25rem}
+.lb{overflow-y:auto;justify-content:flex-start;padding:4.5rem 4rem 2rem}
+.lb-frame img{max-height:48svh;max-width:min(calc(100vw - 8rem),1200px)}
+.spec-plaque{flex-shrink:0;border:1px solid var(--line);background:var(--bg2);padding:1.25rem;margin-top:1.25rem;width:min(100%,850px);text-align:center}
+.spec-plaque h2{font-size:clamp(1.6rem,4vw,2.4rem);margin-bottom:.5rem}
+.spec-plaque p{color:var(--ink-dim);font-size:.85rem;margin-bottom:.4rem}
+.spec-plaque .kicker{color:var(--gold)}
+#plaque-scales{max-width:65ch;margin:0 auto 1rem}
+.lb .spec-plaque button{position:static;font-size:.75rem;line-height:1.5;padding:.8rem 1.25rem;color:var(--gold);border-color:var(--gold)}
+#concierge-drawer{margin-top:2.8rem;border:1px solid var(--line);padding:clamp(1rem,3vw,2rem);scroll-margin-top:120px}
+#concierge-drawer summary{cursor:pointer;color:var(--gold);font-family:'Cormorant Garamond',Georgia,serif;font-size:1.65rem;min-height:48px}
+#concierge-drawer p{max-width:65ch;color:var(--ink-dim);margin:.75rem 0}
+#collector-form{display:grid;gap:.6rem;max-width:42rem;margin-top:1.5rem}
+#collector-form label{font-size:.9rem;margin-top:.5rem}
+#collector-form input,#collector-form select{min-height:48px;width:100%;padding:.8rem;color:var(--ink);background:var(--bg);border:1px solid var(--gold);border-radius:0}
+#collector-form input::placeholder{color:var(--ink-dim);opacity:1}
+#collector-form .btn{background:var(--bg2);margin-top:1rem}
+#collector-form .btn:hover{background:var(--gold);color:var(--bg)}
+.wall-preview .upload input{display:block;width:100%;margin-top:.75rem}
+@media(max-width:640px){nav{justify-content:center}.rds-brand-lockup svg{width:250px}nav .links{justify-content:center;width:100%}.lb{padding:4.5rem .75rem 5rem}.lb-frame img{max-width:calc(100vw - 1.5rem);max-height:40svh}.spec-plaque{padding:1rem}.lb .prev,.lb .next{position:fixed}.hero .copy{padding-bottom:20vh}section{scroll-margin-top:130px}}

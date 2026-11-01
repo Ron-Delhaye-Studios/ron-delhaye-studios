@@ -115,12 +115,34 @@ footer .colophon{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;m
 footer .also{margin-top:.9rem;font-size:.9rem;color:var(--ink-dim)}
 footer .also a{color:var(--gold);text-decoration:none;border-bottom:1px solid var(--line)}
 </style>
-<link rel="stylesheet" href="assets/luxury.css">
+<link rel="stylesheet" href="assets/luxury.css?v=nov2">
+<link rel="stylesheet" href="css/luxury-atelier.css?v=nov2">
+<link rel="icon" type="image/svg+xml" href="images/icons/favicon.svg?v=nov2">
 </head>
-<body>
+<body id="top">
+<a class="skip-link" href="#gallery">Skip to collection</a>
 
 <nav>
-  <div class="brand">Ron Delhaye</div>
+  <a href="#top" class="rds-brand-lockup" aria-label="Ron Delhaye Fine Art · Aspen, Colorado — Photography"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 56" width="270" height="36" role="img" aria-hidden="true">
+    <defs>
+      <linearGradient id="rds-gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#E5C98B" />
+        <stop offset="50%" stop-color="#C6A76A" />
+        <stop offset="100%" stop-color="#9A7B3E" />
+      </linearGradient>
+    </defs>
+    <g transform="translate(4, 4)">
+      <circle cx="24" cy="24" r="22.5" fill="none" stroke="url(#rds-gold-grad)" stroke-width="1" opacity="0.85" />
+      <circle cx="24" cy="24" r="19.5" fill="none" stroke="url(#rds-gold-grad)" stroke-width="0.4" opacity="0.4" />
+      <circle cx="24" cy="15.5" r="3.2" fill="url(#rds-gold-grad)" opacity="0.9" />
+      <path d="M 6.5 34.5 L 18.5 17.5 L 25.5 27.5 L 31.5 19.5 L 41.5 34.5" fill="none" stroke="#F4EFE6" stroke-width="1.15" stroke-linejoin="miter" stroke-miterlimit="4" />
+      <path d="M 18.5 17.5 L 22.5 34.5 M 31.5 19.5 L 34.5 34.5" fill="none" stroke="url(#rds-gold-grad)" stroke-width="0.65" opacity="0.7" />
+      <line x1="8" y1="34.5" x2="40" y2="34.5" stroke="url(#rds-gold-grad)" stroke-width="0.9" />
+    </g>
+    <line x1="66" y1="10" x2="66" y2="46" stroke="url(#rds-gold-grad)" stroke-width="0.75" opacity="0.45" />
+    <text x="82" y="27" fill="#F4EFE6" font-family="'Cormorant Garamond', 'Playfair Display', Georgia, serif" font-size="19" font-weight="400" letter-spacing="6.5">RON DELHAYE</text>
+    <text x="83" y="42" fill="#C6A76A" font-family="'Inter', -apple-system, BlinkMacSystemFont, sans-serif" font-size="7.5" font-weight="500" letter-spacing="4.2" opacity="0.9">FINE ART · ASPEN</text>
+  </svg></a>
   <div class="links">
     <a href="#gallery">Gallery</a>
     <a href="#collect">Collect</a>
@@ -138,21 +160,15 @@ footer .also a{color:var(--gold);text-decoration:none;border-bottom:1px solid va
   <div class="scroll">Scroll</div>
 </header>
 
+<main>
 <section id="gallery">
   <div class="kicker">The Collection</div>
   <h2>Golden Hour, Held Still</h2>
-  <p class="lede">Thirty-one frames from the high country — aspen groves at peak color, valleys at first light, the brief minutes when the land glows. Click any frame to view it full.</p>
+  <p class="lede">Thirty-one archival plates from the Colorado high country — old-growth aspen cathedrals at peak autumn gold, fourteen-thousand-foot basins at first light, and the brief, sacred window when the land glows. Select any plate to inspect edition telemetry and architectural scale.</p>
+  <div class="rds-folio-tabs" role="group" aria-label="Curated folios"><button type="button" data-folio="all" aria-pressed="true">All plates</button><button type="button" data-folio="I" aria-pressed="false">I. The Sacred Grove</button><button type="button" data-folio="II" aria-pressed="false">II. First Light & High Basins</button><button type="button" data-folio="III" aria-pressed="false">III. Alpine Water & Autumn Gold</button></div>
+  <p id="gallery-status" role="status">Loading the plate registry…</p>
   <div class="grid" id="grid"></div>
 </section>
-
-<div class="lb" id="lb" role="dialog" aria-label="Image viewer" aria-modal="true">
-  <div class="count" id="lbCount"></div>
-  <button class="close" id="lbClose" aria-label="Close">×</button>
-  <button class="prev" id="lbPrev" aria-label="Previous">‹</button>
-  <div class="lb-frame"><img id="lbImg" src="" alt=""><div class="lb-shield"></div></div>
-  <button class="next" id="lbNext" aria-label="Next">›</button>
-  <div class="cap" id="lbCap"></div>
-</div>
 
 <section id="collect">
   <div class="inner">
@@ -166,108 +182,92 @@ footer .also a{color:var(--gold);text-decoration:none;border-bottom:1px solid va
       </div>
       <div class="card">
         <h3>Custom Framing</h3>
-        <p>Choose your finish — gallery black, natural oak, or floated canvas. Every frame is built to archival standard, sized from intimate to statement.</p>
+        <p>Custom-milled in American White Oak, Satin Obsidian Ash, or museum-floated Belgian linen canvas, sealed behind anti-reflective Tru Vue® Optium Museum Acrylic® across Intimate (24×36″), Gallery (40×60″), and Statement (60×90″) scales.</p>
       </div>
       <div class="card">
         <h3>White-Glove Delivery</h3>
-        <p>Prints are produced, framed, and shipped directly to you or your installer, anywhere in the country. Unbox, hang, done.</p>
+        <p>Crated to museum transit specifications and dispatched directly to your residence, private aviation terminal, interior designer, or art installer anywhere in North America. Arrives hardware-calibrated and ready for placement.</p>
       </div>
     </div>
-    <div class="cta-row">
-      <!-- PLACEHOLDER: replace with Ron's real collector-list address -->
-      <a class="btn" href="mailto:studio@rondelhayestudios.com?subject=Collector%20list%20—%20Ron%20Delhaye">Join the collector list</a>
-      <span class="note">First access to new releases and private editions.</span>
-    </div>
+    <details id="concierge-drawer">
+      <summary>Private Collector Registry &amp; Acquisition</summary>
+      <p>Request a private dossier and edition availability. This form prepares an email in your email app for you to review and send.</p>
+      <form id="collector-form">
+        <label for="collector-name">Collector name</label><input id="collector-name" name="name" autocomplete="name" required maxlength="150">
+        <label for="collector-email">Email</label><input id="collector-email" name="email" type="email" autocomplete="email" required maxlength="254">
+        <label for="inquiry-plate-input">Selected plate</label><input id="inquiry-plate-input" name="plate" placeholder="General Collection" maxlength="250">
+        <label for="inquiry-scale">Architectural scale</label><select id="inquiry-scale" name="scale"><option>Undecided Scale</option><option>I. Intimate Study · 24 × 36 in</option><option>II. Gallery Standard · 40 × 60 in</option><option>III. Architectural Statement · 60 × 90 in</option><option>IV. Artist Proof · Bespoke Scale</option></select>
+        <button type="submit" class="btn">Prepare acquisition email</button>
+        <p class="note">Email app unavailable? Contact studio@rondelhayestudios.com.</p>
+      </form>
+    </details>
   </div>
 </section>
 
 <section id="wall-preview">
-  <div class="kicker">Interactive</div>
-  <h2>See It on Your Wall</h2>
+  <div class="kicker">Spatial Calibration</div>
+  <h2>The Private Viewing Room</h2>
   <div class="frame">
     <p>True to scale, in your room, in your sizes — before you ever commit. Hang any piece on three interiors, or upload a photo of your own wall.</p>
-    <a class="btn ghost" href="wall-preview/">Try the wall preview</a>
+    <a class="btn ghost" href="wall-preview/">Enter the Viewing Room →</a>
   </div>
 </section>
 
 <section id="about">
   <div class="cols">
-    <img src="images/thumb/Working-31.jpg" alt="Golden valley with a creek at peak autumn color — Photography by Ron Delhaye" loading="lazy">
+    <img src="images/thumb/Working-31.jpg" srcset="images/thumb/Working-31.jpg 800w, images/full/Working-31.jpg 1600w" sizes="(max-width:760px) 100vw, 50vw" alt="Golden valley with a creek at peak autumn color — Photography by Ron Delhaye" loading="lazy">
     <div>
       <div class="kicker">About</div>
-      <h2>From Weddings to Wilderness</h2>
-      <p><strong>Ron Delhaye</strong> is a Colorado-based photographer who traded ballrooms for backcountry. After years behind the lens at weddings, he followed the light into the high country — and stayed.</p>
+      <h2>Patience in the High Country</h2>
+      <p>Ron Delhaye is an Aspen-based fine art photographer whose work is governed by stillness, altitude, and the discipline of waiting. After more than a decade photographing private commissions across North America, he turned his lens permanently toward the backcountry of the Elk Mountains and the Roaring Fork Valley.</p>
       <p>His work is about patience: returning to the same grove, the same valley, until the land shows you something. What you see here is what was there — golden hour, held still.</p>
     </div>
   </div>
 </section>
 
+</main>
+
+<div class="lb" id="lb" role="dialog" aria-label="Image viewer" aria-modal="true">
+  <div class="count" id="lbCount"></div>
+  <button class="close" id="lbClose" aria-label="Close">×</button>
+  <button class="prev" id="lbPrev" aria-label="Previous">‹</button>
+  <div class="lb-frame"><img id="lbImg" src="" alt=""><div class="lb-shield"></div></div>
+  <button class="next" id="lbNext" aria-label="Next">›</button>
+  <div class="spec-plaque">
+    <p id="plaque-number" class="kicker"></p><h2 id="plaque-title"></h2>
+    <p id="plaque-telemetry"></p><p id="plaque-edition"></p>
+    <p id="plaque-master"></p><p id="plaque-scales"></p>
+    <button type="button" class="btn" id="plaque-inquire-btn">Inquire on This Plate</button>
+  </div>
+</div>
+
+
 <footer>
-  <div class="sig serif">Photography by Ron Delhaye</div>
+  <a href="#top" class="rds-brand-lockup" aria-label="Ron Delhaye Fine Art · Aspen, Colorado — Photography"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 56" width="270" height="36" role="img" aria-hidden="true">
+    <defs>
+      <linearGradient id="rds-footer-gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#E5C98B" />
+        <stop offset="50%" stop-color="#C6A76A" />
+        <stop offset="100%" stop-color="#9A7B3E" />
+      </linearGradient>
+    </defs>
+    <g transform="translate(4, 4)">
+      <circle cx="24" cy="24" r="22.5" fill="none" stroke="url(#rds-footer-gold-grad)" stroke-width="1" opacity="0.85" />
+      <circle cx="24" cy="24" r="19.5" fill="none" stroke="url(#rds-footer-gold-grad)" stroke-width="0.4" opacity="0.4" />
+      <circle cx="24" cy="15.5" r="3.2" fill="url(#rds-footer-gold-grad)" opacity="0.9" />
+      <path d="M 6.5 34.5 L 18.5 17.5 L 25.5 27.5 L 31.5 19.5 L 41.5 34.5" fill="none" stroke="#F4EFE6" stroke-width="1.15" stroke-linejoin="miter" stroke-miterlimit="4" />
+      <path d="M 18.5 17.5 L 22.5 34.5 M 31.5 19.5 L 34.5 34.5" fill="none" stroke="url(#rds-footer-gold-grad)" stroke-width="0.65" opacity="0.7" />
+      <line x1="8" y1="34.5" x2="40" y2="34.5" stroke="url(#rds-footer-gold-grad)" stroke-width="0.9" />
+    </g>
+    <line x1="66" y1="10" x2="66" y2="46" stroke="url(#rds-footer-gold-grad)" stroke-width="0.75" opacity="0.45" />
+    <text x="82" y="27" fill="#F4EFE6" font-family="'Cormorant Garamond', 'Playfair Display', Georgia, serif" font-size="19" font-weight="400" letter-spacing="6.5">RON DELHAYE</text>
+    <text x="83" y="42" fill="#C6A76A" font-family="'Inter', -apple-system, BlinkMacSystemFont, sans-serif" font-size="7.5" font-weight="500" letter-spacing="4.2" opacity="0.9">FINE ART · ASPEN</text>
+  </svg></a>
   <div>Colorado, USA</div>
-  <div class="also">Also: <a href="https://ron-delhaye-studios.github.io/this-week-in-aspen/">The Golden Hour</a> — from Aspen and beyond</div>
+  <div class="also">Also: <a href="https://thegoldenhour.guide">The Golden Hour</a> — from Aspen and beyond</div>
   <div class="colophon">An Ad Astra Media publication</div>
 </footer>
 
-<script>
-const PHOTOS = Array.from({length:31},(_,i)=>'Working-'+(i+1)+'.jpg');
-const grid = document.getElementById('grid');
-PHOTOS.forEach((f,i)=>{
-  const d=document.createElement('div'); d.className='tile';
-  d.tabIndex=0; d.setAttribute('role','button'); d.setAttribute('aria-label','View photograph No. '+(i+1));
-  d.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openLB(i)}});
-  const img=document.createElement('img');
-  img.src='images/thumb/'+f; img.alt='Landscape photograph No. '+(i+1)+' — Photography by Ron Delhaye';
-  img.loading='lazy';
-  const n=document.createElement('div'); n.className='num'; n.textContent='No. '+(i+1);
-  d.appendChild(img); d.appendChild(n);
-  d.addEventListener('click',()=>openLB(i));
-  grid.appendChild(d);
-});
-
-const lb=document.getElementById('lb'), lbImg=document.getElementById('lbImg'),
-      lbCap=document.getElementById('lbCap'), lbCount=document.getElementById('lbCount');
-let cur=0, returnFocus=null;
-function preload(i){ const p=new Image(); p.src='images/full/'+PHOTOS[(i+PHOTOS.length)%PHOTOS.length]; }
-function openLB(i){
-  const entering=!lb.classList.contains('open');
-  if(entering) returnFocus=document.activeElement;
-  cur=(i+PHOTOS.length)%PHOTOS.length;
-  lbImg.src='images/full/'+PHOTOS[cur];
-  lbImg.alt='Landscape photograph No. '+(cur+1)+' — Photography by Ron Delhaye';
-  lbCap.innerHTML='<b>No. '+(cur+1)+'</b> · Photography by Ron Delhaye';
-  lbCount.textContent=(cur+1)+' / '+PHOTOS.length;
-  lb.classList.add('open'); document.body.style.overflow='hidden';
-  if(entering) document.getElementById('lbClose').focus();
-  preload(cur+1); preload(cur-1);
-}
-function closeLB(){ lb.classList.remove('open'); document.body.style.overflow=''; returnFocus?.focus(); }
-document.getElementById('lbClose').onclick=closeLB;
-document.getElementById('lbPrev').onclick=e=>{e.stopPropagation();openLB(cur-1)};
-document.getElementById('lbNext').onclick=e=>{e.stopPropagation();openLB(cur+1)};
-lb.addEventListener('click',e=>{ if(e.target===lb) closeLB(); });
-document.addEventListener('keydown',e=>{
-  if(!lb.classList.contains('open')) return;
-  if(e.key==='Tab'){
-    const controls=[...lb.querySelectorAll('button')];const first=controls[0],last=controls[controls.length-1];
-    if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}
-    else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}
-  }
-  if(e.key==='Escape') closeLB();
-  if(e.key==='ArrowLeft') openLB(cur-1);
-  if(e.key==='ArrowRight') openLB(cur+1);
-});
-let tx=0;
-lb.addEventListener('touchstart',e=>{tx=e.changedTouches[0].clientX},{passive:true});
-lb.addEventListener('touchend',e=>{
-  const dx=e.changedTouches[0].clientX-tx;
-  if(Math.abs(dx)>50) openLB(cur+(dx<0?1:-1));
-},{passive:true});
-
-/* photo protection: block right-click and drag-to-save on images.
-   Deters casual theft only — screenshots and devtools always work. */
-document.addEventListener('contextmenu',e=>{ if(e.target.closest('img')) e.preventDefault(); });
-document.addEventListener('dragstart',e=>{ if(e.target.closest('img')) e.preventDefault(); });
-</script>
+<script src="js/atelier-concierge.js?v=nov2" defer></script>
 </body>
 </html>

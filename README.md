@@ -11,16 +11,20 @@ Custom domain: https://thegoldenhour.photography/ — canonical address once DNS
 Originals live in the photographer's Drive and `~/workspace/user/media_library/ron-landscapes/`.
 All images: Photography by Ron Delhaye.
 
-## Edit notes
-- Collector-list signup is a `mailto:` placeholder (`studio@rondelhayestudios.com`) — replace with his real address.
-- `#wall-preview` section is a coming-soon teaser; wire the interactive wall-preview module there when ready.
+## Atelier build
 
-## Luxury presentation
+WO-RDS-LUX-03 extends the merged luxury PR2 presentation with the Alpine Aperture
+crest, vector favicon, three curated folios, 31-plate catalog and acquisition
+concierge. See [implementation notes](docs/WO-RDS-LUX-03.md) for the source,
+review considerations and validation scope.
 
-`assets/luxury.css` maps THALEIA's 0029 §II.A to the existing portfolio and
-wall-preview controls. The original Cormorant display face, all photography,
-copy, collection terms, prices and destinations are preserved. Photographs have
-quiet frames and always-visible numbered captions. The gallery viewer supports
-keyboard activation, keeps focus inside its controls, and returns focus on close.
-The wall preview receives the same palette and accessible control sizing without
-changing its artwork geometry or reservation state.
+- `data/plates-catalog.json` owns titles, telemetry and supplied edition terms.
+- `assets/luxury.css` retains the PR2 foundation.
+- `css/luxury-atelier.css` adds the atelier palette, plaque and collector form.
+- `js/atelier-concierge.js` builds the catalog and manages filtering, viewer and
+  prefilled email inquiries. The form requires an email app; it stores no data.
+- `wall-preview/` provides spatial calibration with the existing room geometry.
+
+Serve this directory over HTTP (for example `python3 -m http.server 8000`), as
+the gallery loads its catalog with fetch. Run `npm ci`,
+`npx playwright install chromium`, and `npm test` for browser validation.
