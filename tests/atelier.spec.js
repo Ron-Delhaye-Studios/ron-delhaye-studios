@@ -15,6 +15,14 @@ async function imagesLoad(page) {
 }
 test('catalog preserves all source plates and static image references',async ({request}) => {
   expect(catalog.plates).toHaveLength(31);
+  expect(catalog.plates.filter(p => p.titleStatus==='confirmed')).toHaveLength(15);
+  for (const number of ['01','02','03','04','05','06','07','08','11','13','23','25','26','27','28','30']) {
+    const plate=catalog.plates.find(p=>p.plate===number);
+    expect(plate.title, 'unresolved plate '+number).toBe('Plate '+number);
+    expect(plate.titleSourceId).toBeNull();
+  }
+  expect(catalog.plates.find(p=>p.plate==='10').title).toBe('Autumn’s Radiance');
+  expect(catalog.plates.find(p=>p.plate==='12').title).toBe('Autumn’s Radiance');
   expect(new Set(catalog.plates.map(p => p.file)).size).toBe(31);
   expect(catalog.plates.some(p => Object.hasOwn(p,'remaining'))).toBeFalsy();
   for (const plate of ['12','18','24','26','27']) expect(catalog.plates.find(p => p.plate===plate).elevation).toBeNull();
@@ -52,7 +60,7 @@ test('folios, plaque, keyboard lifecycle, inquiry and AA scans',async ({page}) =
   await expect(page.locator('#lbClose')).toBeFocused();
   await page.keyboard.press('Shift+Tab');await expect(page.locator('#plaque-inquire-btn')).toBeFocused();
   await page.keyboard.press('Tab');await expect(page.locator('#lbClose')).toBeFocused();
-  await page.keyboard.press('ArrowLeft');await expect(page.locator('#plaque-title')).toHaveText('Plate 29');
+  await page.keyboard.press('ArrowLeft');await expect(page.locator('#plaque-title')).toHaveText('Golden Pathway Through Aspen Grove');
   await page.keyboard.press('ArrowRight');
   await page.keyboard.press('Escape');await expect(first).toBeFocused();
   // Exercise every full-resolution plate without renaming or replacing source files.

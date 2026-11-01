@@ -50,6 +50,36 @@ class ArtistTitleMappingTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'multiple plates'):
             resolve_catalog(self.catalog, self.registry, self.mapping)
 
+    def variant_pair(self):
+        self.mapping['variantGroups'] = {'pair-1-2': {
+            'sourceId': 'artist-source', 'files': ['Working-1.jpg', 'Working-2.jpg'],
+            'confirmedBy': 'luna', 'evidence': 'Explicitly reviewed variants of the same scene'}}
+        self.mapping['matches'] = {p['file']: dict(self.match(), variantGroup='pair-1-2') for p in self.catalog['plates']}
+
+    def test_documented_variants_share_exact_artist_title(self):
+        self.variant_pair()
+        result = resolve_catalog(self.catalog, self.registry, self.mapping)
+        self.assertEqual([p['title'] for p in result['plates']], ['Artist’s Own Title', 'Artist’s Own Title'])
+
+    def test_variant_group_requires_exact_members_source_and_evidence(self):
+        for field, value in [('files', ['Working-1.jpg']), ('sourceId', 'other-source'), ('confirmedBy', ''), ('evidence', '')]:
+            with self.subTest(field=field):
+                self.variant_pair()
+                self.mapping['variantGroups']['pair-1-2'][field] = value
+                with self.assertRaisesRegex(ValueError, 'Variant group lacks'):
+                    resolve_catalog(self.catalog, self.registry, self.mapping)
+        self.variant_pair()
+        del self.mapping['matches']['Working-2.jpg']
+        with self.assertRaisesRegex(ValueError, 'Variant group lacks'):
+            resolve_catalog(self.catalog, self.registry, self.mapping)
+
+    def test_provisional_and_contested_confidence_never_bind(self):
+        for confidence in ['PROVISIONAL', 'SCENE MATCHED', 'CONTESTED', 'STRONG — CONTESTED by another title']:
+            with self.subTest(confidence=confidence):
+                self.mapping['matches'] = {'Working-1.jpg': dict(self.match(), registryConfidence=confidence)}
+                with self.assertRaisesRegex(ValueError, 'not eligible'):
+                    resolve_catalog(self.catalog, self.registry, self.mapping)
+
 
 if __name__ == '__main__':
     unittest.main()

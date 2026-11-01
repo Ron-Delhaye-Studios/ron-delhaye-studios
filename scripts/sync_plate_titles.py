@@ -19,18 +19,30 @@ def resolve_catalog(catalog, registry, matches):
         raise ValueError('Title-match map belongs to a different source revision')
     resolved = deepcopy(catalog)
     files = {plate['file'] for plate in resolved['plates']}
-    used = set()
+    assignments = {}
     for filename, match in matches['matches'].items():
         if filename not in files:
             raise ValueError('Unknown plate file: ' + filename)
         source_id = match['sourceId']
         if source_id not in titles:
             raise ValueError('Unknown artist source ID: ' + source_id)
-        if source_id in used:
-            raise ValueError('One artist title record matched to multiple plates: ' + source_id)
         if match.get('status') != 'confirmed' or not match.get('confirmedBy') or not match.get('evidence'):
             raise ValueError('Match lacks confirmation and evidence: ' + filename)
-        used.add(source_id)
+        if match.get('registryConfidence') not in (None, 'CONFIRMED', 'STRONG'):
+            raise ValueError('Registry confidence is not eligible for binding: ' + filename)
+        assignments.setdefault(source_id, []).append(filename)
+    for source_id, filenames in assignments.items():
+        group_ids = {matches['matches'][name].get('variantGroup') for name in filenames}
+        if len(filenames) == 1 and group_ids == {None}:
+            continue
+        if len(group_ids) != 1 or None in group_ids:
+            raise ValueError('One artist title record matched to multiple plates without an explicit variant group: ' + source_id)
+        group = matches.get('variantGroups', {}).get(next(iter(group_ids)), {})
+        group_files = group.get('files', [])
+        if (group.get('sourceId') != source_id or len(group_files) < 2 or
+                len(group_files) != len(set(group_files)) or set(group_files) != set(filenames) or
+                not group.get('confirmedBy') or not group.get('evidence')):
+            raise ValueError('Variant group lacks exact files, source or confirmation evidence: ' + source_id)
     for plate in resolved['plates']:
         match = matches['matches'].get(plate['file'])
         plate['title'] = titles[match['sourceId']] if match else 'Plate ' + plate['plate']
