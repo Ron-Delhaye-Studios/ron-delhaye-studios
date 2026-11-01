@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 56" width="270" height="36" role="img" aria-hidden="true">
+    <defs>
+      <linearGradient id="rds-gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#E5C98B" />
+        <stop offset="50%" stop-color="#C6A76A" />
+        <stop offset="100%" stop-color="#9A7B3E" />
+      </linearGradient>
+    </defs>
+    <g transform="translate(4, 4)">
+      <circle cx="24" cy="24" r="22.5" fill="none" stroke="url(#rds-gold-grad)" stroke-width="1" opacity="0.85" />
+      <circle cx="24" cy="24" r="19.5" fill="none" stroke="url(#rds-gold-grad)" stroke-width="0.4" opacity="0.4" />
+      <circle cx="24" cy="15.5" r="3.2" fill="url(#rds-gold-grad)" opacity="0.9" />
+      <path d="M 6.5 34.5 L 18.5 17.5 L 25.5 27.5 L 31.5 19.5 L 41.5 34.5" fill="none" stroke="#F4EFE6" stroke-width="1.15" stroke-linejoin="miter" stroke-miterlimit="4" />
+      <path d="M 18.5 17.5 L 22.5 34.5 M 31.5 19.5 L 34.5 34.5" fill="none" stroke="url(#rds-gold-grad)" stroke-width="0.65" opacity="0.7" />
+      <line x1="8" y1="34.5" x2="40" y2="34.5" stroke="url(#rds-gold-grad)" stroke-width="0.9" />
+    </g>
+    <line x1="66" y1="10" x2="66" y2="46" stroke="url(#rds-gold-grad)" stroke-width="0.75" opacity="0.45" />
+    <text x="82" y="27" fill="#F4EFE6" font-family="'Cormorant Garamond', 'Playfair Display', Georgia, serif" font-size="19" font-weight="400" letter-spacing="6.5">RON DELHAYE</text>
+    <text x="83" y="42" fill="#C6A76A" font-family="'Inter', -apple-system, BlinkMacSystemFont, sans-serif" font-size="7.5" font-weight="500" letter-spacing="4.2" opacity="0.9">FINE ART · ASPEN</text>
+  </svg>
