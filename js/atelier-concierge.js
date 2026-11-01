@@ -17,8 +17,8 @@
     text('lbCount', `${current + 1} / ${visible.length}`);
     text('plaque-number', 'Plate ' + plate.plate);
     text('plaque-title', plate.title);
-    text('plaque-telemetry', `${plate.location} · ${plate.elevation} · ${plate.aspect}`);
-    text('plaque-edition', `${catalog.editionStandard} · ${plate.remaining} remaining`);
+    text('plaque-telemetry', [plate.location, plate.elevation, plate.aspect].filter(Boolean).join(' · '));
+    text('plaque-edition', catalog.editionStandard);
     text('plaque-master', catalog.masterResolution);
     text('plaque-scales', catalog.tiers.map(t => `${t.dimensions} · ${t.allocation} · ${t.price === null ? 'Price on request' : new Intl.NumberFormat('en-US', {style:'currency', currency:'USD', maximumFractionDigits:0}).format(t.price)}`).join(' / '));
     lb.classList.add('open');

@@ -16,6 +16,9 @@ async function imagesLoad(page) {
 test('catalog preserves all source plates and static image references',async ({request}) => {
   expect(catalog.plates).toHaveLength(31);
   expect(new Set(catalog.plates.map(p => p.file)).size).toBe(31);
+  expect(catalog.plates.some(p => Object.hasOwn(p,'remaining'))).toBeFalsy();
+  for (const plate of ['12','18','24','26','27']) expect(catalog.plates.find(p => p.plate===plate).elevation).toBeNull();
+  expect(JSON.stringify(catalog)).not.toContain('300 PPI');
   const paths = new Set();
   for (let i=1;i<=31;i++) for (const dir of ['full','thumb']) paths.add(`images/${dir}/Working-${i}.jpg`);
   for (const file of ['index.html','wall-preview/index.html','manifest.json','wall-preview/wall-preview-assets/manifest.json']) {
@@ -32,6 +35,7 @@ test('folios, plaque, keyboard lifecycle, inquiry and AA scans',async ({page}) =
   await page.goto('/');
   await expect(page.locator('.tile')).toHaveCount(31);
   await imagesLoad(page);await accessible(page);
+  await expect(page.locator('body')).not.toContainText(/museum transit|Tru Vue|Optium|private commissions|permanently toward|certificate of authenticity/);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBeTruthy();
   for (const folio of catalog.folios) {
     await page.locator(`[data-folio="${folio.id}"]`).click();
@@ -53,6 +57,9 @@ test('folios, plaque, keyboard lifecycle, inquiry and AA scans',async ({page}) =
   await page.locator('.tile').first().click();
   for (const plate of catalog.plates) {
     await expect(page.locator('#plaque-title')).toHaveText(plate.title);
+    await expect(page.locator('.spec-plaque')).not.toContainText(/remaining|300 PPI|undefined|null/);
+    const heldElevations = {'12':'10,800 FT','18':'10,114 FT','24':'11,200 FT','26':'11,500 FT','27':'11,520 FT'};
+    if (heldElevations[plate.plate]) await expect(page.locator('#plaque-telemetry')).not.toContainText(heldElevations[plate.plate]);
     await page.locator('#lbImg').evaluate(i=>i.decode());
     await page.locator('#lbNext').click();
   }

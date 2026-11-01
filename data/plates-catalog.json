@@ -2,7 +2,7 @@
   "house": "Ron Delhaye Studios",
   "collection": "Golden Hour, Held Still",
   "editionStandard": "Limited Edition of 25 · 2 Artist Proofs",
-  "masterResolution": "12,000 × 16,000 px · 300 PPI Archival Master",
+  "masterResolution": "12,000 × 16,000 px Archival Master",
   "tiers": [
     {
       "id": "intimate",
@@ -58,8 +58,7 @@
       "title": "Cathedral of the White Bark",
       "location": "Maroon Creek Valley, CO",
       "elevation": "9,850 FT",
-      "aspect": "4:3",
-      "remaining": 19
+      "aspect": "4:3"
     },
     {
       "plate": "02",
@@ -68,8 +67,7 @@
       "title": "First Ember on Capitol Peak",
       "location": "Capitol Creek Trailhead, CO",
       "elevation": "9,400 FT",
-      "aspect": "4:3",
-      "remaining": 14
+      "aspect": "4:3"
     },
     {
       "plate": "03",
@@ -78,8 +76,7 @@
       "title": "The Quiet Divide",
       "location": "Independence Pass, CO",
       "elevation": "12,095 FT",
-      "aspect": "4:3",
-      "remaining": 21
+      "aspect": "4:3"
     },
     {
       "plate": "04",
@@ -88,8 +85,7 @@
       "title": "Aurelia in the Canopy",
       "location": "Castle Creek Road, CO",
       "elevation": "9,120 FT",
-      "aspect": "4:3",
-      "remaining": 17
+      "aspect": "4:3"
     },
     {
       "plate": "05",
@@ -98,8 +94,7 @@
       "title": "Roaring Fork Stillness",
       "location": "Difficult Creek, Aspen, CO",
       "elevation": "8,360 FT",
-      "aspect": "4:3",
-      "remaining": 22
+      "aspect": "4:3"
     },
     {
       "plate": "06",
@@ -108,8 +103,7 @@
       "title": "Ridge of the Sleeping Giant",
       "location": "Elk Mountains, CO",
       "elevation": "11,400 FT",
-      "aspect": "2:1",
-      "remaining": 12
+      "aspect": "2:1"
     },
     {
       "plate": "07",
@@ -118,8 +112,7 @@
       "title": "Pillars of October",
       "location": "Kebler Pass, CO",
       "elevation": "10,007 FT",
-      "aspect": "4:3",
-      "remaining": 16
+      "aspect": "4:3"
     },
     {
       "plate": "08",
@@ -128,8 +121,7 @@
       "title": "Liquid Amber",
       "location": "Hunter Creek Valley, CO",
       "elevation": "8,900 FT",
-      "aspect": "4:3",
-      "remaining": 20
+      "aspect": "4:3"
     },
     {
       "plate": "09",
@@ -138,8 +130,7 @@
       "title": "Sanctuary Light",
       "location": "Aspen Highlands Ridge, CO",
       "elevation": "10,450 FT",
-      "aspect": "4:3",
-      "remaining": 8
+      "aspect": "4:3"
     },
     {
       "plate": "10",
@@ -148,8 +139,7 @@
       "title": "Alpenglow on Pyramid",
       "location": "Maroon Bells Amphitheatre",
       "elevation": "9,580 FT",
-      "aspect": "4:3",
-      "remaining": 11
+      "aspect": "4:3"
     },
     {
       "plate": "11",
@@ -158,8 +148,7 @@
       "title": "Whispering Timber",
       "location": "Snowmass Creek, CO",
       "elevation": "8,750 FT",
-      "aspect": "4:3",
-      "remaining": 18
+      "aspect": "4:3"
     },
     {
       "plate": "12",
@@ -167,9 +156,8 @@
       "folio": "III",
       "title": "Mirror of the High Country",
       "location": "Silver Dollar Pond, CO",
-      "elevation": "10,800 FT",
-      "aspect": "2:1",
-      "remaining": 15
+      "elevation": null,
+      "aspect": "2:1"
     },
     {
       "plate": "13",
@@ -178,8 +166,7 @@
       "title": "Gold Leaf & Granite",
       "location": "Lincoln Creek, CO",
       "elevation": "10,120 FT",
-      "aspect": "4:3",
-      "remaining": 23
+      "aspect": "4:3"
     },
     {
       "plate": "14",
@@ -188,8 +175,7 @@
       "title": "The Last Fifteen Minutes",
       "location": "McClure Pass Summit, CO",
       "elevation": "8,755 FT",
-      "aspect": "4:3",
-      "remaining": 14
+      "aspect": "4:3"
     },
     {
       "plate": "15",
@@ -198,8 +184,7 @@
       "title": "Vespers in the Grove",
       "location": "Ashcroft Valley, CO",
       "elevation": "9,500 FT",
-      "aspect": "4:3",
-      "remaining": 19
+      "aspect": "4:3"
     },
     {
       "plate": "16",
@@ -208,8 +193,7 @@
       "title": "Glacial Thread",
       "location": "Conundrum Creek, CO",
       "elevation": "9,900 FT",
-      "aspect": "4:3",
-      "remaining": 21
+      "aspect": "4:3"
     },
     {
       "plate": "17",
@@ -218,8 +202,7 @@
       "title": "Crown of the Sopris",
       "location": "Mount Sopris Basin, CO",
       "elevation": "10,600 FT",
-      "aspect": "2:1",
-      "remaining": 9
+      "aspect": "2:1"
     },
     {
       "plate": "18",
@@ -227,9 +210,8 @@
       "folio": "I",
       "title": "Solitude in 4:3",
       "location": "Owl Creek Pass, CO",
-      "elevation": "10,114 FT",
-      "aspect": "4:3",
-      "remaining": 17
+      "elevation": null,
+      "aspect": "4:3"
     },
     {
       "plate": "19",
@@ -238,8 +220,7 @@
       "title": "Drift of the Fallen Gold",
       "location": "Fryingpan River, CO",
       "elevation": "8,420 FT",
-      "aspect": "4:3",
-      "remaining": 20
+      "aspect": "4:3"
     },
     {
       "plate": "20",
@@ -248,8 +229,7 @@
       "title": "Timberline Horizon",
       "location": "Continental Divide, CO",
       "elevation": "11,850 FT",
-      "aspect": "2:1",
-      "remaining": 13
+      "aspect": "2:1"
     },
     {
       "plate": "21",
@@ -258,8 +238,7 @@
       "title": "The Patient Valley",
       "location": "Crystal River Valley, CO",
       "elevation": "7,950 FT",
-      "aspect": "4:3",
-      "remaining": 16
+      "aspect": "4:3"
     },
     {
       "plate": "22",
@@ -268,8 +247,7 @@
       "title": "Sunburst Through Silver",
       "location": "Smuggler Mountain, CO",
       "elevation": "9,200 FT",
-      "aspect": "4:3",
-      "remaining": 12
+      "aspect": "4:3"
     },
     {
       "plate": "23",
@@ -278,8 +256,7 @@
       "title": "Current of Light",
       "location": "Maroon Lake Outlet, CO",
       "elevation": "9,580 FT",
-      "aspect": "4:3",
-      "remaining": 15
+      "aspect": "4:3"
     },
     {
       "plate": "24",
@@ -287,9 +264,8 @@
       "folio": "II",
       "title": "High Basin Overture",
       "location": "Cathedral Lake Trail, CO",
-      "elevation": "11,200 FT",
-      "aspect": "4:3",
-      "remaining": 22
+      "elevation": null,
+      "aspect": "4:3"
     },
     {
       "plate": "25",
@@ -298,8 +274,7 @@
       "title": "Sovereign Stand",
       "location": "Ohio Pass, CO",
       "elevation": "10,033 FT",
-      "aspect": "4:3",
-      "remaining": 18
+      "aspect": "4:3"
     },
     {
       "plate": "26",
@@ -307,9 +282,8 @@
       "folio": "II",
       "title": "Shadow & Sovereign Gold",
       "location": "West Maroon Pass, CO",
-      "elevation": "11,500 FT",
-      "aspect": "4:3",
-      "remaining": 14
+      "elevation": null,
+      "aspect": "4:3"
     },
     {
       "plate": "27",
@@ -317,9 +291,8 @@
       "folio": "III",
       "title": "Still Water at Twilight",
       "location": "Lost Man Reservoir, CO",
-      "elevation": "11,520 FT",
-      "aspect": "2:1",
-      "remaining": 19
+      "elevation": null,
+      "aspect": "2:1"
     },
     {
       "plate": "28",
@@ -328,8 +301,7 @@
       "title": "The Golden Corridor",
       "location": "Dallas Divide, CO",
       "elevation": "8,970 FT",
-      "aspect": "4:3",
-      "remaining": 16
+      "aspect": "4:3"
     },
     {
       "plate": "29",
@@ -338,8 +310,7 @@
       "title": "Ascent of the Sun",
       "location": "Williams Mountains, CO",
       "elevation": "11,300 FT",
-      "aspect": "4:3",
-      "remaining": 20
+      "aspect": "4:3"
     },
     {
       "plate": "30",
@@ -348,8 +319,7 @@
       "title": "Benediction in Yellow",
       "location": "Buttermilk West Ridge, CO",
       "elevation": "9,700 FT",
-      "aspect": "4:3",
-      "remaining": 17
+      "aspect": "4:3"
     },
     {
       "plate": "31",
@@ -358,8 +328,7 @@
       "title": "The Bend at Golden Hour",
       "location": "Roaring Fork High Valley",
       "elevation": "9,340 FT",
-      "aspect": "4:3",
-      "remaining": 7
+      "aspect": "4:3"
     }
   ]
 }
