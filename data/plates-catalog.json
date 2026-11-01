@@ -133,23 +133,23 @@
       "plate": "09",
       "file": "Working-9.jpg",
       "folio": "I",
-      "title": "Plate 09",
+      "title": "Light’s Golden Embrace",
       "location": "Aspen Highlands Ridge, CO",
       "elevation": "10,450 FT",
       "aspect": "4:3",
-      "titleSourceId": null,
-      "titleStatus": "awaiting-match"
+      "titleSourceId": "1A4DVVDBGp-NJeSV4dNQmOybJtOyzgnl_FF8F9TbL-OY",
+      "titleStatus": "confirmed"
     },
     {
       "plate": "10",
       "file": "Working-10.jpg",
       "folio": "II",
-      "title": "Plate 10",
+      "title": "Autumn’s Radiance",
       "location": "Maroon Bells Amphitheatre",
       "elevation": "9,580 FT",
       "aspect": "4:3",
-      "titleSourceId": null,
-      "titleStatus": "awaiting-match"
+      "titleSourceId": "1xNgrHPI9WCFAdyLD4ierhSJv-hxJHLtiFInIdu4WdxQ",
+      "titleStatus": "confirmed"
     },
     {
       "plate": "11",
@@ -166,12 +166,12 @@
       "plate": "12",
       "file": "Working-12.jpg",
       "folio": "III",
-      "title": "Plate 12",
+      "title": "Autumn’s Radiance",
       "location": "Silver Dollar Pond, CO",
       "elevation": null,
       "aspect": "2:1",
-      "titleSourceId": null,
-      "titleStatus": "awaiting-match"
+      "titleSourceId": "1xNgrHPI9WCFAdyLD4ierhSJv-hxJHLtiFInIdu4WdxQ",
+      "titleStatus": "confirmed"
     },
     {
       "plate": "13",
@@ -188,100 +188,100 @@
       "plate": "14",
       "file": "Working-14.jpg",
       "folio": "II",
-      "title": "Plate 14",
+      "title": "Radiance Along the Stream",
       "location": "McClure Pass Summit, CO",
       "elevation": "8,755 FT",
       "aspect": "4:3",
-      "titleSourceId": null,
-      "titleStatus": "awaiting-match"
+      "titleSourceId": "1UcEM2qNZjTAcCfzglJefZsQJnYq4RiC9Htku37Ukw3s",
+      "titleStatus": "confirmed"
     },
     {
       "plate": "15",
       "file": "Working-15.jpg",
       "folio": "I",
-      "title": "Plate 15",
+      "title": "Autumn's Crimson Passage",
       "location": "Ashcroft Valley, CO",
       "elevation": "9,500 FT",
       "aspect": "4:3",
-      "titleSourceId": null,
-      "titleStatus": "awaiting-match"
+      "titleSourceId": "1ax0F_h8fhh84s2WO9wtO0KtFmlHvQHkr7_u6LIAqqx4",
+      "titleStatus": "confirmed"
     },
     {
       "plate": "16",
       "file": "Working-16.jpg",
       "folio": "III",
-      "title": "Plate 16",
+      "title": "Valley of Gold",
       "location": "Conundrum Creek, CO",
       "elevation": "9,900 FT",
       "aspect": "4:3",
-      "titleSourceId": null,
-      "titleStatus": "awaiting-match"
+      "titleSourceId": "1-U5GVR3VD3pzkvO0fuIwrXOw1LIMrlWtqHoDV95omas",
+      "titleStatus": "confirmed"
     },
     {
       "plate": "17",
       "file": "Working-17.jpg",
       "folio": "II",
-      "title": "Plate 17",
+      "title": "Crystal Reflections of Gold",
       "location": "Mount Sopris Basin, CO",
       "elevation": "10,600 FT",
       "aspect": "2:1",
-      "titleSourceId": null,
-      "titleStatus": "awaiting-match"
+      "titleSourceId": "1oIky5f0wYsOB5YggfgTKUVqr_FGu-nsRN_UO4ylrVUo",
+      "titleStatus": "confirmed"
     },
     {
       "plate": "18",
       "file": "Working-18.jpg",
       "folio": "I",
-      "title": "Plate 18",
+      "title": "Hidden Glow in the Forest",
       "location": "Owl Creek Pass, CO",
       "elevation": null,
       "aspect": "4:3",
-      "titleSourceId": null,
-      "titleStatus": "awaiting-match"
+      "titleSourceId": "12CYHq-0NjYa_fv0gk36z3OmTjdrs0KWtGe5a5TP88VA",
+      "titleStatus": "confirmed"
     },
     {
       "plate": "19",
       "file": "Working-19.jpg",
       "folio": "III",
-      "title": "Plate 19",
+      "title": "Autumn Symphony at the Lake",
       "location": "Fryingpan River, CO",
       "elevation": "8,420 FT",
       "aspect": "4:3",
-      "titleSourceId": null,
-      "titleStatus": "awaiting-match"
+      "titleSourceId": "1Xxv-YfykwdbRVeAlCYo3xQquOS5f2UWoOcQpyWRrJbw",
+      "titleStatus": "confirmed"
     },
     {
       "plate": "20",
       "file": "Working-20.jpg",
       "folio": "II",
-      "title": "Plate 20",
+      "title": "Golden Sanctuary",
       "location": "Continental Divide, CO",
       "elevation": "11,850 FT",
       "aspect": "2:1",
-      "titleSourceId": null,
-      "titleStatus": "awaiting-match"
+      "titleSourceId": "1Iu7HlAeAPAuN30Vq3ViCmOCayauu_ew-1JtP0_pCUjY",
+      "titleStatus": "confirmed"
     },
     {
       "plate": "21",
       "file": "Working-21.jpg",
       "folio": "I",
-      "title": "Plate 21",
+      "title": "Golden Pastures Beneath the Peaks",
       "location": "Crystal River Valley, CO",
       "elevation": "7,950 FT",
       "aspect": "4:3",
-      "titleSourceId": null,
-      "titleStatus": "awaiting-match"
+      "titleSourceId": "1BUIuLfgDQp5fzTeTHNoU8EbPAwy1p9a3V3vC5pP61o0",
+      "titleStatus": "confirmed"
     },
     {
       "plate": "22",
       "file": "Working-22.jpg",
       "folio": "I",
-      "title": "Plate 22",
+      "title": "Golden Light Beneath the Peaks",
       "location": "Smuggler Mountain, CO",
       "elevation": "9,200 FT",
       "aspect": "4:3",
-      "titleSourceId": null,
-      "titleStatus": "awaiting-match"
+      "titleSourceId": "1RdqCVlJuX8jiJ2qGjUWCxu-AwKx2SjprnS7tIE53vxE",
+      "titleStatus": "confirmed"
     },
     {
       "plate": "23",
@@ -298,12 +298,12 @@
       "plate": "24",
       "file": "Working-24.jpg",
       "folio": "II",
-      "title": "Plate 24",
+      "title": "Path to Alpine Splendor",
       "location": "Cathedral Lake Trail, CO",
       "elevation": null,
       "aspect": "4:3",
-      "titleSourceId": null,
-      "titleStatus": "awaiting-match"
+      "titleSourceId": "1pwXOXcijxnU3ctfeKHdAqERjJtQKnxsjL3KIe0lp3o4",
+      "titleStatus": "confirmed"
     },
     {
       "plate": "25",
@@ -353,12 +353,12 @@
       "plate": "29",
       "file": "Working-29.jpg",
       "folio": "II",
-      "title": "Plate 29",
+      "title": "Golden Pathway Through Aspen Grove",
       "location": "Williams Mountains, CO",
       "elevation": "11,300 FT",
       "aspect": "4:3",
-      "titleSourceId": null,
-      "titleStatus": "awaiting-match"
+      "titleSourceId": "1imLnvz50b-TX_0-XINAZiuWDGwUPaHx8y7Ec5as7BKw",
+      "titleStatus": "confirmed"
     },
     {
       "plate": "30",
@@ -375,12 +375,12 @@
       "plate": "31",
       "file": "Working-31.jpg",
       "folio": "III",
-      "title": "Plate 31",
+      "title": "Whispers of Autumn's Light",
       "location": "Roaring Fork High Valley",
       "elevation": "9,340 FT",
       "aspect": "4:3",
-      "titleSourceId": null,
-      "titleStatus": "awaiting-match"
+      "titleSourceId": "1TmZ1usoInC2SgelcbUKkC1IWaudfpL-YdoL-eIwTU_g",
+      "titleStatus": "confirmed"
     }
   ]
 }

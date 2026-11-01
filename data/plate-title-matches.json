@@ -1,4 +1,143 @@
 {
   "sourceSha256": "326a01f0c3e8b904fce2e7a27ab4ba066883581a0028f0fe7916ac677b92144d",
-  "matches": {}
+  "matchRegistry": {
+    "fileId": "1rxsW6ItQHh0dAk66HsI7C7tf76ZJjCu1",
+    "sha256": "4d06aeb29d65c3362fa1735bca7222c80aa5c68a2380849f28ef63367093a332",
+    "messageId": "BUS-20261101-LUNA-CODEX-PLATE-MATCHES"
+  },
+  "matches": {
+    "Working-20.jpg": {
+      "sourceId": "1Iu7HlAeAPAuN30Vq3ViCmOCayauu_ew-1JtP0_pCUjY",
+      "status": "confirmed",
+      "registryConfidence": "CONFIRMED",
+      "confirmedBy": "luna",
+      "evidence": "Sheet names a serene pond + rustic barn + golden aspens + mountains; W20 is the only plate with pond AND barn.",
+      "sourceRegistryPlate": "Working-20"
+    },
+    "Working-15.jpg": {
+      "sourceId": "1ax0F_h8fhh84s2WO9wtO0KtFmlHvQHkr7_u6LIAqqx4",
+      "status": "confirmed",
+      "registryConfidence": "CONFIRMED",
+      "confirmedBy": "luna",
+      "evidence": "Sheet: stream alongside crimson rock walls + golden aspens. W15's red cliff is unique on the site.",
+      "sourceRegistryPlate": "Working-15"
+    },
+    "Working-17.jpg": {
+      "sourceId": "1oIky5f0wYsOB5YggfgTKUVqr_FGu-nsRN_UO4ylrVUo",
+      "status": "confirmed",
+      "registryConfidence": "CONFIRMED",
+      "confirmedBy": "luna",
+      "evidence": "Sheet: a lone canoe on a calm mountain lake among golden aspens. W17 is the only plate with a boat.",
+      "sourceRegistryPlate": "Working-17"
+    },
+    "Working-18.jpg": {
+      "sourceId": "12CYHq-0NjYa_fv0gk36z3OmTjdrs0KWtGe5a5TP88VA",
+      "status": "confirmed",
+      "registryConfidence": "STRONG",
+      "confirmedBy": "luna",
+      "evidence": "Sheet names a rustic fence in a forest lit by golden leaves; W18 is the only fence-in-grove plate.",
+      "sourceRegistryPlate": "Working-18"
+    },
+    "Working-19.jpg": {
+      "sourceId": "1Xxv-YfykwdbRVeAlCYo3xQquOS5f2UWoOcQpyWRrJbw",
+      "status": "confirmed",
+      "registryConfidence": "STRONG",
+      "confirmedBy": "luna",
+      "evidence": "Sheet: mountain lake + golden aspens + snow-capped peaks in the distance. W17 is taken by the canoe sheet; W19 fits the rest.",
+      "sourceRegistryPlate": "Working-19"
+    },
+    "Working-9.jpg": {
+      "sourceId": "1A4DVVDBGp-NJeSV4dNQmOybJtOyzgnl_FF8F9TbL-OY",
+      "status": "confirmed",
+      "registryConfidence": "STRONG",
+      "confirmedBy": "luna",
+      "evidence": "Sheet: aspen grove glowing, sunlight streaming through. W9 is the site's grove-sunburst hero.",
+      "sourceRegistryPlate": "Working-9"
+    },
+    "Working-29.jpg": {
+      "sourceId": "1imLnvz50b-TX_0-XINAZiuWDGwUPaHx8y7Ec5as7BKw",
+      "status": "confirmed",
+      "registryConfidence": "STRONG",
+      "confirmedBy": "luna",
+      "evidence": "Sheet: sunlit pathway through a grove of golden aspens. W29 is the grove track; W23 is a mixed-forest trail.",
+      "sourceRegistryPlate": "Working-29"
+    },
+    "Working-24.jpg": {
+      "sourceId": "1pwXOXcijxnU3ctfeKHdAqERjJtQKnxsjL3KIe0lp3o4",
+      "status": "confirmed",
+      "registryConfidence": "STRONG",
+      "confirmedBy": "luna",
+      "evidence": "Sheet: dirt path framed by aspens + evergreens toward snow-dusted peaks under blue sky. W24 matches element for element.",
+      "sourceRegistryPlate": "Working-24"
+    },
+    "Working-10.jpg": {
+      "sourceId": "1xNgrHPI9WCFAdyLD4ierhSJv-hxJHLtiFInIdu4WdxQ",
+      "status": "confirmed",
+      "registryConfidence": "STRONG",
+      "confirmedBy": "luna",
+      "evidence": "Sheet: golden aspens + vibrant red oaks foreground, snow-capped mountains under DRAMATIC skies. The storm light is the discriminator vs W21's clear day.",
+      "sourceRegistryPlate": "Working-10 + Working-12",
+      "variantGroup": "luna-variants-10-12"
+    },
+    "Working-12.jpg": {
+      "sourceId": "1xNgrHPI9WCFAdyLD4ierhSJv-hxJHLtiFInIdu4WdxQ",
+      "status": "confirmed",
+      "registryConfidence": "STRONG",
+      "confirmedBy": "luna",
+      "evidence": "Sheet: golden aspens + vibrant red oaks foreground, snow-capped mountains under DRAMATIC skies. The storm light is the discriminator vs W21's clear day.",
+      "sourceRegistryPlate": "Working-10 + Working-12",
+      "variantGroup": "luna-variants-10-12"
+    },
+    "Working-21.jpg": {
+      "sourceId": "1BUIuLfgDQp5fzTeTHNoU8EbPAwy1p9a3V3vC5pP61o0",
+      "status": "confirmed",
+      "registryConfidence": "STRONG",
+      "confirmedBy": "luna",
+      "evidence": "Sheet: golden meadows + fiery red oaks leading to snow-capped peaks under a vibrant BLUE sky.",
+      "sourceRegistryPlate": "Working-21"
+    },
+    "Working-22.jpg": {
+      "sourceId": "1RdqCVlJuX8jiJ2qGjUWCxu-AwKx2SjprnS7tIE53vxE",
+      "status": "confirmed",
+      "registryConfidence": "STRONG",
+      "confirmedBy": "luna",
+      "evidence": "Sheet: a single golden-lit tree standing out against rugged wilderness + snow-dusted peaks. W22 is built on exactly that.",
+      "sourceRegistryPlate": "Working-22"
+    },
+    "Working-16.jpg": {
+      "sourceId": "1-U5GVR3VD3pzkvO0fuIwrXOw1LIMrlWtqHoDV95omas",
+      "status": "confirmed",
+      "registryConfidence": "STRONG",
+      "confirmedBy": "luna",
+      "evidence": "Sheet: valley of golden aspens + peaks + 'the harmony between nature and rural life.' W16 is the only working-ranch valley.",
+      "sourceRegistryPlate": "Working-16"
+    },
+    "Working-14.jpg": {
+      "sourceId": "1UcEM2qNZjTAcCfzglJefZsQJnYq4RiC9Htku37Ukw3s",
+      "status": "confirmed",
+      "registryConfidence": "STRONG",
+      "confirmedBy": "luna",
+      "evidence": "Sheet: a SPARKLING mountain stream under a clear blue sky. W14's riffles sparkle; other creek plates are shaded or calm.",
+      "sourceRegistryPlate": "Working-14"
+    },
+    "Working-31.jpg": {
+      "sourceId": "1TmZ1usoInC2SgelcbUKkC1IWaudfpL-YdoL-eIwTU_g",
+      "status": "confirmed",
+      "registryConfidence": "STRONG",
+      "confirmedBy": "luna",
+      "evidence": "Sheet: a river with CASCADING waters. W31 is the only rapids plate.",
+      "sourceRegistryPlate": "Working-31"
+    }
+  },
+  "variantGroups": {
+    "luna-variants-10-12": {
+      "sourceId": "1xNgrHPI9WCFAdyLD4ierhSJv-hxJHLtiFInIdu4WdxQ",
+      "files": [
+        "Working-10.jpg",
+        "Working-12.jpg"
+      ],
+      "confirmedBy": "luna",
+      "evidence": "Sheet: golden aspens + vibrant red oaks foreground, snow-capped mountains under DRAMATIC skies. The storm light is the discriminator vs W21's clear day. Explicit variant pair recorded by LUNA in the source registry and BUS handoff."
+    }
+  }
 }
