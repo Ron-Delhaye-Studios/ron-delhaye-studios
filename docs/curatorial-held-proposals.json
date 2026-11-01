@@ -50,5 +50,77 @@
     "Crated to museum transit specifications and dispatched directly to your residence, private aviation terminal, interior designer, or art installer anywhere in North America. Arrives hardware-calibrated and ready for placement.",
     "Ron Delhaye is an Aspen-based fine art photographer whose work is governed by stillness, altitude, and the discipline of waiting. After more than a decade photographing private commissions across North America, he turned his lens permanently toward the backcountry of the Elk Mountains and the Roaring Fork Valley.",
     "His work is about patience: returning to the same grove, the same valley, until the land shows you something. What you see here is what was there — golden hour, held still."
+  ],
+  "originalTitles": {
+    "01": "Cathedral of the White Bark",
+    "02": "First Ember on Capitol Peak",
+    "03": "The Quiet Divide",
+    "04": "Aurelia in the Canopy",
+    "05": "Roaring Fork Stillness",
+    "06": "Ridge of the Sleeping Giant",
+    "07": "Pillars of October",
+    "08": "Liquid Amber",
+    "09": "Sanctuary Light",
+    "10": "Alpenglow on Pyramid",
+    "11": "Whispering Timber",
+    "12": "Mirror of the High Country",
+    "13": "Gold Leaf & Granite",
+    "14": "The Last Fifteen Minutes",
+    "15": "Vespers in the Grove",
+    "16": "Glacial Thread",
+    "17": "Crown of the Sopris",
+    "18": "Solitude in 4:3",
+    "19": "Drift of the Fallen Gold",
+    "20": "Timberline Horizon",
+    "21": "The Patient Valley",
+    "22": "Sunburst Through Silver",
+    "23": "Current of Light",
+    "24": "High Basin Overture",
+    "25": "Sovereign Stand",
+    "26": "Shadow & Sovereign Gold",
+    "27": "Still Water at Twilight",
+    "28": "The Golden Corridor",
+    "29": "Ascent of the Sun",
+    "30": "Benediction in Yellow",
+    "31": "The Bend at Golden Hour"
+  },
+  "artemisReviewedDraftTitles": {
+    "04": "Under the Canopy",
+    "17": "Crown of Sopris",
+    "18": "The Long Quiet",
+    "19": "Drift, Fryingpan",
+    "26": "Gold in Shadow",
+    "28": "The Corridor"
+  },
+  "editionStandard": "Limited Edition of 25 · 2 Artist Proofs",
+  "tiers": [
+    {
+      "id": "intimate",
+      "label": "I. Intimate Study",
+      "dimensions": "24 × 36 in",
+      "allocation": "Nos. 11–25",
+      "price": 2400
+    },
+    {
+      "id": "gallery",
+      "label": "II. Gallery Standard",
+      "dimensions": "40 × 60 in",
+      "allocation": "Nos. 04–10",
+      "price": 4800
+    },
+    {
+      "id": "statement",
+      "label": "III. Architectural Statement",
+      "dimensions": "60 × 90 in",
+      "allocation": "Nos. 01–03",
+      "price": 9500
+    },
+    {
+      "id": "ap",
+      "label": "IV. Artist Proof",
+      "dimensions": "Bespoke Scale",
+      "allocation": "AP 01–02",
+      "price": null
+    }
   ]
 }

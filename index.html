@@ -164,7 +164,7 @@ footer .also a{color:var(--gold);text-decoration:none;border-bottom:1px solid va
 <section id="gallery">
   <div class="kicker">The Collection</div>
   <h2>Golden Hour, Held Still</h2>
-  <p class="lede">Thirty-one archival plates from the Colorado high country — old-growth aspen cathedrals at peak autumn gold, fourteen-thousand-foot basins at first light, and the brief, sacred window when the land glows. Select any plate to inspect edition telemetry and architectural scale.</p>
+  <p class="lede">Thirty-one plates from the Colorado high country: aspen groves at peak autumn gold, high basins beneath the fourteeners, and the brief window when the land ignites. Select a plate for edition details and scale.</p>
   <div class="rds-folio-tabs" role="group" aria-label="Curated folios"><button type="button" data-folio="all" aria-pressed="true">All plates</button><button type="button" data-folio="I" aria-pressed="false">I. The Sacred Grove</button><button type="button" data-folio="II" aria-pressed="false">II. First Light & High Basins</button><button type="button" data-folio="III" aria-pressed="false">III. Alpine Water & Autumn Gold</button></div>
   <p id="gallery-status" role="status">Loading the plate registry…</p>
   <div class="grid" id="grid"></div>
@@ -177,7 +177,7 @@ footer .also a{color:var(--gold);text-decoration:none;border-bottom:1px solid va
     <p class="lede">Explore the collection and inquire about edition details, framing, and delivery.</p>
     <div class="cards">
       <div class="card">
-        <h3>Limited Editions</h3>
+        <h3>Edition Details</h3>
         <p>Request the edition details and documentation for the work you are considering.</p>
       </div>
       <div class="card">
@@ -196,7 +196,19 @@ footer .also a{color:var(--gold);text-decoration:none;border-bottom:1px solid va
         <label for="collector-name">Collector name</label><input id="collector-name" name="name" autocomplete="name" required maxlength="150">
         <label for="collector-email">Email</label><input id="collector-email" name="email" type="email" autocomplete="email" required maxlength="254">
         <label for="inquiry-plate-input">Selected plate</label><input id="inquiry-plate-input" name="plate" placeholder="General Collection" maxlength="250">
-        <label for="inquiry-scale">Architectural scale</label><select id="inquiry-scale" name="scale"><option>Undecided Scale</option><option>I. Intimate Study · 24 × 36 in</option><option>II. Gallery Standard · 40 × 60 in</option><option>III. Architectural Statement · 60 × 90 in</option><option>IV. Artist Proof · Bespoke Scale</option></select>
+        <label for="inquiry-scale">Preferred scale (request)</label><select id="inquiry-scale" name="scale"><option>Undecided Scale</option><option>I. Intimate Study · 24 × 36 in</option><option>II. Gallery Standard · 40 × 60 in</option><option>III. Architectural Statement · 60 × 90 in</option><option>Bespoke Scale</option></select>
+        <fieldset class="dossier-request">
+          <legend>Print specifications to request</legend>
+          <p>Your inquiry asks the studio to confirm these details for your selected work:</p>
+          <ul>
+            <li>Substrate / paper class (for example, museum rag and archival pigment process)</li>
+            <li>Paper weight in gsm</li>
+            <li>Archival lifespan rating and its test basis</li>
+            <li>Hand-signature detail</li>
+            <li>Certificate of Authenticity and its matching registry ID</li>
+            <li>Edition policy, current price, and available scales</li>
+          </ul>
+        </fieldset>
         <button type="submit" class="btn">Prepare acquisition email</button>
         <p class="note">Email app unavailable? Contact studio@rondelhayestudios.com.</p>
       </form>
@@ -235,8 +247,7 @@ footer .also a{color:var(--gold);text-decoration:none;border-bottom:1px solid va
   <button class="next" id="lbNext" aria-label="Next">›</button>
   <div class="spec-plaque">
     <p id="plaque-number" class="kicker"></p><h2 id="plaque-title"></h2>
-    <p id="plaque-telemetry"></p><p id="plaque-edition"></p>
-    <p id="plaque-master"></p><p id="plaque-scales"></p>
+    <p id="plaque-telemetry"></p><p id="plaque-scales"></p>
     <button type="button" class="btn" id="plaque-inquire-btn">Inquire on This Plate</button>
   </div>
 </div>

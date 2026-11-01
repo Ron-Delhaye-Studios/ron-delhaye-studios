@@ -36,3 +36,8 @@ nav{background:rgba(11,12,14,.98)}
 #collector-form .btn:hover{background:var(--gold);color:var(--bg)}
 .wall-preview .upload input{display:block;width:100%;margin-top:.75rem}
 @media(max-width:640px){nav{justify-content:center}.rds-brand-lockup svg{width:250px}nav .links{justify-content:center;width:100%}.lb{padding:4.5rem .75rem 5rem}.lb-frame img{max-width:calc(100vw - 1.5rem);max-height:40svh}.spec-plaque{padding:1rem}.lb .prev,.lb .next{position:fixed}.hero .copy{padding-bottom:20vh}section{scroll-margin-top:130px}}
+
+.dossier-request{border:1px solid var(--line);padding:1rem;margin-top:1rem;min-width:0}
+.dossier-request legend{color:var(--gold);padding:0 .4rem;font-size:.9rem}
+.dossier-request ul{padding-left:1.25rem;color:var(--ink-dim);font-size:.9rem}
+.dossier-request li{margin:.4rem 0}

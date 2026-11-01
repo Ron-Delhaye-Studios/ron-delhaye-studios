@@ -6,6 +6,7 @@
   const image = document.getElementById('lbImg');
   const drawer = document.getElementById('concierge-drawer');
   let catalog, visible = [], current = 0, returnFocus;
+  const plateLabel = plate => plate.title === `Plate ${plate.plate}` ? plate.title : `Plate ${plate.plate} — ${plate.title}`;
   const text = (id, value) => { document.getElementById(id).textContent = value; };
   function open(index) {
     const entering = !lb.classList.contains('open');
@@ -18,9 +19,7 @@
     text('plaque-number', 'Plate ' + plate.plate);
     text('plaque-title', plate.title);
     text('plaque-telemetry', [plate.location, plate.elevation, plate.aspect].filter(Boolean).join(' · '));
-    text('plaque-edition', catalog.editionStandard);
-    text('plaque-master', catalog.masterResolution);
-    text('plaque-scales', catalog.tiers.map(t => `${t.dimensions} · ${t.allocation} · ${t.price === null ? 'Price on request' : new Intl.NumberFormat('en-US', {style:'currency', currency:'USD', maximumFractionDigits:0}).format(t.price)}`).join(' / '));
+    text('plaque-scales', 'Preferred scales to discuss: ' + catalog.tiers.map(t => t.dimensions).join(' / '));
     lb.classList.add('open');
     document.body.style.overflow = 'hidden';
     for (const el of document.querySelectorAll('body > :not(.lb):not(script)')) el.inert = true;
@@ -58,7 +57,7 @@
     const plate = visible[current];
     close(false);
     drawer.open = true;
-    document.getElementById('inquiry-plate-input').value = `Plate ${plate.plate} — ${plate.title}`;
+    document.getElementById('inquiry-plate-input').value = plateLabel(plate);
     drawer.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block:'center'});
     document.getElementById('inquiry-plate-input').focus({preventScroll:true});
   };
@@ -79,10 +78,10 @@
     data.plates.forEach(plate => {
       const card = document.createElement('button');
       card.type = 'button'; card.className = 'tile'; card.dataset.plateFolio = plate.folio;
-      card.setAttribute('aria-label', `Inspect Plate ${plate.plate} — ${plate.title}`);
+      card.setAttribute('aria-label', `Inspect ${plateLabel(plate)}`);
       const img = document.createElement('img');
       img.src = 'images/thumb/' + plate.file; img.alt = `${plate.title} — ${plate.location}`; img.loading = 'lazy';
-      const label = document.createElement('span'); label.className = 'num'; label.textContent = `Plate ${plate.plate} · ${plate.title}`;
+      const label = document.createElement('span'); label.className = 'num'; label.textContent = plateLabel(plate);
       card.append(img, label);
       card.onclick = () => open(visible.indexOf(plate));
       grid.append(card);
@@ -96,7 +95,7 @@
     const data = new FormData(e.currentTarget);
     const plate = data.get('plate') || 'General Collection';
     const subject = `Private Acquisition Inquiry — ${plate} (${data.get('name')})`;
-    const body = `RON DELHAYE STUDIOS · PRIVATE ACQUISITION DESK\n----------------------------------------------\nCollector Name: ${data.get('name')}\nCollector Email: ${data.get('email')}\nSelected Plate: ${plate}\nArchitectural Scale: ${data.get('scale')}\n\nPlease forward the private dossier and edition availability for the work above.`;
+    const body = `RON DELHAYE STUDIOS · PRIVATE ACQUISITION DESK\n----------------------------------------------\nCollector Name: ${data.get('name')}\nCollector Email: ${data.get('email')}\nSelected Plate: ${plate}\nArchitectural Scale: ${data.get('scale')}\n\nPlease forward the private dossier and edition availability for the work above.\n\nPlease confirm:\n- Substrate / paper class (for example, museum rag and archival pigment process)\n- Paper weight in gsm\n- Archival lifespan rating and its test basis\n- Hand-signature detail\n- Certificate of Authenticity and its matching registry ID\n- Edition policy, current price, and available scales.`;
     window.location.href = `mailto:studio@rondelhayestudios.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
   document.addEventListener('contextmenu', e => { if (e.target.closest('img')) e.preventDefault(); });

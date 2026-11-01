@@ -1,40 +1,27 @@
 # WO-RDS-LUX-03 implementation notes
 
-Source: [THALEIA 0041 — build and spec](https://docs.google.com/document/d/1gUEh_0sZd7N86TyyGNimhFGQIWxuPHLqrgHbxZtVBXw/edit), retrieved 2026-11-01.
-Base: merged Studios luxury PR #2 (`ea4b85b`).
+Source: [THALEIA 0041 — build and spec](https://docs.google.com/document/d/1gUEh_0sZd7N86TyyGNimhFGQIWxuPHLqrgHbxZtVBXw/edit), retrieved 2026-11-01. Original base: merged Studios luxury PR #2 (`ea4b85b`). Current changes extend owner-merged PR #3 and the Home Screen hotfixes.
 
-- Crest and favicon SVGs and the base 31-plate catalog are taken from the source document. Original Working-1.jpg through Working-31.jpg files are unchanged.
-- `css/luxury-atelier.css` extends PR2 using the supplied SVG palette (obsidian #0B0C0E, ivory #F4EFE6, gold #C6A76A). The source names this stylesheet but supplies no CSS block; the layout rules are implemented here.
-- Folio filters use native toggle buttons with `aria-pressed`, because these filter one shared gallery rather than switching tab panels. All filters remain keyboard accessible.
-- The plaque displays catalog details with ARTEMIS’s holds applied (see below). Other supplied editorial/commercial assertions still require owner review before merge.
-- Acquisition opens a native details drawer, prefills the selected plate, and prepares the specified structured mailto email. The collector must review and send it in an email app. There is no server-side registry or submission storage.
-- Lightbox controls preserve Escape, arrow navigation, swipe, focus containment and focus restoration. Background content is inert while the viewer is open; inquiry restores page scrolling before focusing the form.
-- The About responsive image includes the original full JPEG with its actual 1600w descriptor. The source requests 2000w, but that descriptor would misstate the unchanged file's pixel width.
-- Both pages reference styles and the vector favicon with `?v=nov2`; the main page script and catalog request use the same cache version.
+The crest, vector favicon and 31 Working image paths come from 0041. Original image files are unchanged. `css/luxury-atelier.css` extends PR2 with the supplied SVG palette (obsidian #0B0C0E, ivory #F4EFE6, gold #C6A76A); 0041 names the stylesheet but supplies no CSS block. Styles/script/catalog/favicon retain `?v=nov2`.
+
+Folio filters use native toggle buttons with `aria-pressed`. The lightbox preserves Escape, arrows, swipe, focus containment/restoration and an inert background. Inquiry restores scrolling and focuses the native acquisition drawer. Email dispatch prepares a structured mailto for the collector to review and send; there is no server-side registry or storage. The drawer explicitly requests the paper/signature/certificate/edition specifications required by LUNA's latest pickup.
+
+## Current content gates
+
+See [artist-title registry and handoff](artist-title-registry.md) for sources, ARTEMIS's exact delta, matching rules and remaining inputs. The 46 recovered artist titles are imported into a source-traceable title index. Only confirmed file-to-sheet matches populate public titles; unmatched photos display plate numbers. The exact collection intro and Folio II correction are applied. ARTEMIS's six synthetic title alternatives are preserved as review history rather than published over the artist's titles.
+
+Elevations for plates 26, 12, 18, 24 and 27 remain omitted. Inventory counts, generic master/PPI assertions, edition/price/allocations and bio/service claims remain held pending verification/owner confirmation. Original proposals are retained in `docs/curatorial-held-proposals.json`; runtime code does not load that file. Do not infer paper weight, archival lifespan, signature or certificate availability from the drawer's questions.
+
+The About image uses the full JPEG's actual 1600w descriptor. Viewing-room geometry is preserved; assigning image sources only when changed avoids its prior load/render loop.
+
+## Home Screen routing
+
+Root `CNAME` contains `thegoldenhour.photography`. GitHub Pages deploys `main` at `/`. The root manifest launches `/` with scope `/`, and `/ron-delhaye-studios/` redirects old saved shortcuts to the custom-domain root while preserving query and fragment. Owner confirmed Home Screen launch working after the deployed hotfixes. These settings are preserved.
 
 ## Validation
 
-Run `npm ci`, `npx playwright install chromium`, then `npm test`.
-The suite checks source paths over HTTP, all 31 full-resolution plates, filtered navigation, keyboard focus, the inquiry handoff and encoded email fields. It scans the main gallery, open plaque, open collector form and private viewing room with axe WCAG 2.1 A/AA rules at desktop (1440×1000) and mobile (390×844) sizes.
+Run `npm ci`, `npx playwright install chromium`, then `npm test`. Run `python -m unittest discover -s tests -p 'test_*.py' -v` and `python scripts/sync_plate_titles.py --check` for title mapping checks.
 
-Automated accessibility results do not establish complete WCAG conformance. LUNA's physical iOS/desktop acceptance and Master Indy's merge review remain required by the work order (`NEEDS_RON_MERGE`).
+Current validation: **8/8 Playwright tests and 5/5 mapping tests pass**. Source image paths are checked over HTTP, every full-resolution plate is decoded, and desktop/mobile tests cover filtering, keyboard focus, inquiry prefill, encoded email questions, held-claim omission, Home Screen launch and no horizontal overflow. Axe scans the gallery, open plaque, open drawer and viewing room with WCAG 2.1 A/AA rules at 1440×1000 and 390×844: zero automated violations. Automated scans do not establish complete WCAG conformance. LUNA's physical iOS/desktop acceptance remains separate.
 
-Validated 2026-11-01: **6/6 Playwright tests passed** in Chromium. Zero broken image paths, zero axe WCAG 2.1 A/AA violations in the tested states, and no horizontal overflow at either tested viewport. Desktop/mobile hero and plaque screenshots were inspected. The viewing room's existing image-load render loop was repaired by assigning image sources only when changed; geometry is preserved.
-
-
-## ARTEMIS curatorial delta — 2026-11-01
-
-Evidence: OBSERVED (0041), live-checked (plate 26, Maroon Lake), INFERRED (rest), as relayed by MASTER INDY and LUNA’s bus message `BUS-20261101-LUNA-CODEX-RDS-LUX-03-CURATORIAL-DELTA`.
-
-Applied holds:
-- Elevations for plates 26, 12, 18, 24 and 27 are null in the active catalog and omitted from the plaque pending verification. No replacement elevations have been inferred.
-- All remaining inventory counts are removed from the active catalog and plaque pending owner confirmation.
-- The 300 PPI assertion is removed from the active catalog and plaque pending owner confirmation.
-- Bio and service claims (including metadata, signed/certificate promises, framing materials/glazing, transit specifications, service area and installation readiness) are replaced with neutral inquiry copy pending owner confirmation.
-- Original held proposals are preserved for review in `docs/curatorial-held-proposals.json`; runtime code does not load that file.
-
-Still pending exact editorial text: five title edits, collection intro rewrite, and the “fourteeners” correction. The Drive spec and bus relay provide categories only, without replacement strings. LUNA has already requested the verbatim delta from ARTEMIS (`BUS-20261101-LUNA-ARTEMIS-RDS-LUX-03-DELTA-TEXT`). Existing title/intro text is not presented as ARTEMIS-approved. Plate 26’s proposed location (West Maroon Pass) also needs reconciliation with ARTEMIS’s Maroon Lake observation; no location correction is inferred from the summary.
-
-Gate remains **NEEDS_RON_MERGE**, with the exact editorial delta and LUNA’s physical-device acceptance outstanding.
-
-Curatorial-hold regression validation: **6/6 tests passed** after the holds, including all five omitted elevations and absence of inventory counts, 300 PPI and the held bio/service wording. Zero broken image paths and zero automated WCAG 2.1 A/AA violations remain in the tested states.
+Gate: **NEEDS_RON_MERGE**. This follow-up is PR-only; no merge/deployment is authorized by a BUS status label.

@@ -1,36 +1,26 @@
 {
   "house": "Ron Delhaye Studios",
   "collection": "Golden Hour, Held Still",
-  "editionStandard": "Limited Edition of 25 · 2 Artist Proofs",
-  "masterResolution": "12,000 × 16,000 px Archival Master",
   "tiers": [
     {
       "id": "intimate",
       "label": "I. Intimate Study",
-      "dimensions": "24 × 36 in",
-      "allocation": "Nos. 11–25",
-      "price": 2400
+      "dimensions": "24 × 36 in"
     },
     {
       "id": "gallery",
       "label": "II. Gallery Standard",
-      "dimensions": "40 × 60 in",
-      "allocation": "Nos. 04–10",
-      "price": 4800
+      "dimensions": "40 × 60 in"
     },
     {
       "id": "statement",
       "label": "III. Architectural Statement",
-      "dimensions": "60 × 90 in",
-      "allocation": "Nos. 01–03",
-      "price": 9500
+      "dimensions": "60 × 90 in"
     },
     {
       "id": "ap",
-      "label": "IV. Artist Proof",
-      "dimensions": "Bespoke Scale",
-      "allocation": "AP 01–02",
-      "price": null
+      "label": "Bespoke Scale",
+      "dimensions": "Bespoke Scale"
     }
   ],
   "folios": [
@@ -42,7 +32,7 @@
     {
       "id": "II",
       "title": "First Light & High Basins",
-      "subtitle": "Fourteen-thousand-foot ridges and valleys waking in the first minutes of gold."
+      "subtitle": "High basins beneath the fourteeners, waking in the first minutes of gold."
     },
     {
       "id": "III",
@@ -55,280 +45,342 @@
       "plate": "01",
       "file": "Working-1.jpg",
       "folio": "I",
-      "title": "Cathedral of the White Bark",
+      "title": "Plate 01",
       "location": "Maroon Creek Valley, CO",
       "elevation": "9,850 FT",
-      "aspect": "4:3"
+      "aspect": "4:3",
+      "titleSourceId": null,
+      "titleStatus": "awaiting-match"
     },
     {
       "plate": "02",
       "file": "Working-2.jpg",
       "folio": "I",
-      "title": "First Ember on Capitol Peak",
+      "title": "Plate 02",
       "location": "Capitol Creek Trailhead, CO",
       "elevation": "9,400 FT",
-      "aspect": "4:3"
+      "aspect": "4:3",
+      "titleSourceId": null,
+      "titleStatus": "awaiting-match"
     },
     {
       "plate": "03",
       "file": "Working-3.jpg",
       "folio": "II",
-      "title": "The Quiet Divide",
+      "title": "Plate 03",
       "location": "Independence Pass, CO",
       "elevation": "12,095 FT",
-      "aspect": "4:3"
+      "aspect": "4:3",
+      "titleSourceId": null,
+      "titleStatus": "awaiting-match"
     },
     {
       "plate": "04",
       "file": "Working-4.jpg",
       "folio": "I",
-      "title": "Aurelia in the Canopy",
+      "title": "Plate 04",
       "location": "Castle Creek Road, CO",
       "elevation": "9,120 FT",
-      "aspect": "4:3"
+      "aspect": "4:3",
+      "titleSourceId": null,
+      "titleStatus": "awaiting-match"
     },
     {
       "plate": "05",
       "file": "Working-5.jpg",
       "folio": "III",
-      "title": "Roaring Fork Stillness",
+      "title": "Plate 05",
       "location": "Difficult Creek, Aspen, CO",
       "elevation": "8,360 FT",
-      "aspect": "4:3"
+      "aspect": "4:3",
+      "titleSourceId": null,
+      "titleStatus": "awaiting-match"
     },
     {
       "plate": "06",
       "file": "Working-6.jpg",
       "folio": "II",
-      "title": "Ridge of the Sleeping Giant",
+      "title": "Plate 06",
       "location": "Elk Mountains, CO",
       "elevation": "11,400 FT",
-      "aspect": "2:1"
+      "aspect": "2:1",
+      "titleSourceId": null,
+      "titleStatus": "awaiting-match"
     },
     {
       "plate": "07",
       "file": "Working-7.jpg",
       "folio": "I",
-      "title": "Pillars of October",
+      "title": "Plate 07",
       "location": "Kebler Pass, CO",
       "elevation": "10,007 FT",
-      "aspect": "4:3"
+      "aspect": "4:3",
+      "titleSourceId": null,
+      "titleStatus": "awaiting-match"
     },
     {
       "plate": "08",
       "file": "Working-8.jpg",
       "folio": "III",
-      "title": "Liquid Amber",
+      "title": "Plate 08",
       "location": "Hunter Creek Valley, CO",
       "elevation": "8,900 FT",
-      "aspect": "4:3"
+      "aspect": "4:3",
+      "titleSourceId": null,
+      "titleStatus": "awaiting-match"
     },
     {
       "plate": "09",
       "file": "Working-9.jpg",
       "folio": "I",
-      "title": "Sanctuary Light",
+      "title": "Plate 09",
       "location": "Aspen Highlands Ridge, CO",
       "elevation": "10,450 FT",
-      "aspect": "4:3"
+      "aspect": "4:3",
+      "titleSourceId": null,
+      "titleStatus": "awaiting-match"
     },
     {
       "plate": "10",
       "file": "Working-10.jpg",
       "folio": "II",
-      "title": "Alpenglow on Pyramid",
+      "title": "Plate 10",
       "location": "Maroon Bells Amphitheatre",
       "elevation": "9,580 FT",
-      "aspect": "4:3"
+      "aspect": "4:3",
+      "titleSourceId": null,
+      "titleStatus": "awaiting-match"
     },
     {
       "plate": "11",
       "file": "Working-11.jpg",
       "folio": "I",
-      "title": "Whispering Timber",
+      "title": "Plate 11",
       "location": "Snowmass Creek, CO",
       "elevation": "8,750 FT",
-      "aspect": "4:3"
+      "aspect": "4:3",
+      "titleSourceId": null,
+      "titleStatus": "awaiting-match"
     },
     {
       "plate": "12",
       "file": "Working-12.jpg",
       "folio": "III",
-      "title": "Mirror of the High Country",
+      "title": "Plate 12",
       "location": "Silver Dollar Pond, CO",
       "elevation": null,
-      "aspect": "2:1"
+      "aspect": "2:1",
+      "titleSourceId": null,
+      "titleStatus": "awaiting-match"
     },
     {
       "plate": "13",
       "file": "Working-13.jpg",
       "folio": "I",
-      "title": "Gold Leaf & Granite",
+      "title": "Plate 13",
       "location": "Lincoln Creek, CO",
       "elevation": "10,120 FT",
-      "aspect": "4:3"
+      "aspect": "4:3",
+      "titleSourceId": null,
+      "titleStatus": "awaiting-match"
     },
     {
       "plate": "14",
       "file": "Working-14.jpg",
       "folio": "II",
-      "title": "The Last Fifteen Minutes",
+      "title": "Plate 14",
       "location": "McClure Pass Summit, CO",
       "elevation": "8,755 FT",
-      "aspect": "4:3"
+      "aspect": "4:3",
+      "titleSourceId": null,
+      "titleStatus": "awaiting-match"
     },
     {
       "plate": "15",
       "file": "Working-15.jpg",
       "folio": "I",
-      "title": "Vespers in the Grove",
+      "title": "Plate 15",
       "location": "Ashcroft Valley, CO",
       "elevation": "9,500 FT",
-      "aspect": "4:3"
+      "aspect": "4:3",
+      "titleSourceId": null,
+      "titleStatus": "awaiting-match"
     },
     {
       "plate": "16",
       "file": "Working-16.jpg",
       "folio": "III",
-      "title": "Glacial Thread",
+      "title": "Plate 16",
       "location": "Conundrum Creek, CO",
       "elevation": "9,900 FT",
-      "aspect": "4:3"
+      "aspect": "4:3",
+      "titleSourceId": null,
+      "titleStatus": "awaiting-match"
     },
     {
       "plate": "17",
       "file": "Working-17.jpg",
       "folio": "II",
-      "title": "Crown of the Sopris",
+      "title": "Plate 17",
       "location": "Mount Sopris Basin, CO",
       "elevation": "10,600 FT",
-      "aspect": "2:1"
+      "aspect": "2:1",
+      "titleSourceId": null,
+      "titleStatus": "awaiting-match"
     },
     {
       "plate": "18",
       "file": "Working-18.jpg",
       "folio": "I",
-      "title": "Solitude in 4:3",
+      "title": "Plate 18",
       "location": "Owl Creek Pass, CO",
       "elevation": null,
-      "aspect": "4:3"
+      "aspect": "4:3",
+      "titleSourceId": null,
+      "titleStatus": "awaiting-match"
     },
     {
       "plate": "19",
       "file": "Working-19.jpg",
       "folio": "III",
-      "title": "Drift of the Fallen Gold",
+      "title": "Plate 19",
       "location": "Fryingpan River, CO",
       "elevation": "8,420 FT",
-      "aspect": "4:3"
+      "aspect": "4:3",
+      "titleSourceId": null,
+      "titleStatus": "awaiting-match"
     },
     {
       "plate": "20",
       "file": "Working-20.jpg",
       "folio": "II",
-      "title": "Timberline Horizon",
+      "title": "Plate 20",
       "location": "Continental Divide, CO",
       "elevation": "11,850 FT",
-      "aspect": "2:1"
+      "aspect": "2:1",
+      "titleSourceId": null,
+      "titleStatus": "awaiting-match"
     },
     {
       "plate": "21",
       "file": "Working-21.jpg",
       "folio": "I",
-      "title": "The Patient Valley",
+      "title": "Plate 21",
       "location": "Crystal River Valley, CO",
       "elevation": "7,950 FT",
-      "aspect": "4:3"
+      "aspect": "4:3",
+      "titleSourceId": null,
+      "titleStatus": "awaiting-match"
     },
     {
       "plate": "22",
       "file": "Working-22.jpg",
       "folio": "I",
-      "title": "Sunburst Through Silver",
+      "title": "Plate 22",
       "location": "Smuggler Mountain, CO",
       "elevation": "9,200 FT",
-      "aspect": "4:3"
+      "aspect": "4:3",
+      "titleSourceId": null,
+      "titleStatus": "awaiting-match"
     },
     {
       "plate": "23",
       "file": "Working-23.jpg",
       "folio": "III",
-      "title": "Current of Light",
+      "title": "Plate 23",
       "location": "Maroon Lake Outlet, CO",
       "elevation": "9,580 FT",
-      "aspect": "4:3"
+      "aspect": "4:3",
+      "titleSourceId": null,
+      "titleStatus": "awaiting-match"
     },
     {
       "plate": "24",
       "file": "Working-24.jpg",
       "folio": "II",
-      "title": "High Basin Overture",
+      "title": "Plate 24",
       "location": "Cathedral Lake Trail, CO",
       "elevation": null,
-      "aspect": "4:3"
+      "aspect": "4:3",
+      "titleSourceId": null,
+      "titleStatus": "awaiting-match"
     },
     {
       "plate": "25",
       "file": "Working-25.jpg",
       "folio": "I",
-      "title": "Sovereign Stand",
+      "title": "Plate 25",
       "location": "Ohio Pass, CO",
       "elevation": "10,033 FT",
-      "aspect": "4:3"
+      "aspect": "4:3",
+      "titleSourceId": null,
+      "titleStatus": "awaiting-match"
     },
     {
       "plate": "26",
       "file": "Working-26.jpg",
       "folio": "II",
-      "title": "Shadow & Sovereign Gold",
+      "title": "Plate 26",
       "location": "West Maroon Pass, CO",
       "elevation": null,
-      "aspect": "4:3"
+      "aspect": "4:3",
+      "titleSourceId": null,
+      "titleStatus": "awaiting-match"
     },
     {
       "plate": "27",
       "file": "Working-27.jpg",
       "folio": "III",
-      "title": "Still Water at Twilight",
+      "title": "Plate 27",
       "location": "Lost Man Reservoir, CO",
       "elevation": null,
-      "aspect": "2:1"
+      "aspect": "2:1",
+      "titleSourceId": null,
+      "titleStatus": "awaiting-match"
     },
     {
       "plate": "28",
       "file": "Working-28.jpg",
       "folio": "I",
-      "title": "The Golden Corridor",
+      "title": "Plate 28",
       "location": "Dallas Divide, CO",
       "elevation": "8,970 FT",
-      "aspect": "4:3"
+      "aspect": "4:3",
+      "titleSourceId": null,
+      "titleStatus": "awaiting-match"
     },
     {
       "plate": "29",
       "file": "Working-29.jpg",
       "folio": "II",
-      "title": "Ascent of the Sun",
+      "title": "Plate 29",
       "location": "Williams Mountains, CO",
       "elevation": "11,300 FT",
-      "aspect": "4:3"
+      "aspect": "4:3",
+      "titleSourceId": null,
+      "titleStatus": "awaiting-match"
     },
     {
       "plate": "30",
       "file": "Working-30.jpg",
       "folio": "I",
-      "title": "Benediction in Yellow",
+      "title": "Plate 30",
       "location": "Buttermilk West Ridge, CO",
       "elevation": "9,700 FT",
-      "aspect": "4:3"
+      "aspect": "4:3",
+      "titleSourceId": null,
+      "titleStatus": "awaiting-match"
     },
     {
       "plate": "31",
       "file": "Working-31.jpg",
       "folio": "III",
-      "title": "The Bend at Golden Hour",
+      "title": "Plate 31",
       "location": "Roaring Fork High Valley",
       "elevation": "9,340 FT",
-      "aspect": "4:3"
+      "aspect": "4:3",
+      "titleSourceId": null,
+      "titleStatus": "awaiting-match"
     }
   ]
 }

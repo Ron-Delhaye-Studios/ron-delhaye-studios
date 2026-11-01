@@ -19,6 +19,9 @@ test('catalog preserves all source plates and static image references',async ({r
   expect(catalog.plates.some(p => Object.hasOwn(p,'remaining'))).toBeFalsy();
   for (const plate of ['12','18','24','26','27']) expect(catalog.plates.find(p => p.plate===plate).elevation).toBeNull();
   expect(JSON.stringify(catalog)).not.toContain('300 PPI');
+  expect(catalog).not.toHaveProperty('masterResolution');
+  expect(catalog).not.toHaveProperty('editionStandard');
+  expect(catalog.tiers.every(t => !Object.hasOwn(t,'price') && !Object.hasOwn(t,'allocation'))).toBeTruthy();
   const paths = new Set();
   for (let i=1;i<=31;i++) for (const dir of ['full','thumb']) paths.add(`images/${dir}/Working-${i}.jpg`);
   for (const file of ['index.html','wall-preview/index.html','manifest.json','wall-preview/wall-preview-assets/manifest.json']) {
@@ -44,12 +47,12 @@ test('folios, plaque, keyboard lifecycle, inquiry and AA scans',async ({page}) =
   await page.locator('[data-folio="II"]').click();
   const first = page.locator('.tile:visible').first();
   await first.focus();await page.keyboard.press('Enter');
-  await expect(page.locator('#plaque-title')).toHaveText('The Quiet Divide');
+  await expect(page.locator('#plaque-title')).toHaveText('Plate 03');
   await imagesLoad(page);await accessible(page);
   await expect(page.locator('#lbClose')).toBeFocused();
   await page.keyboard.press('Shift+Tab');await expect(page.locator('#plaque-inquire-btn')).toBeFocused();
   await page.keyboard.press('Tab');await expect(page.locator('#lbClose')).toBeFocused();
-  await page.keyboard.press('ArrowLeft');await expect(page.locator('#plaque-title')).toHaveText('Ascent of the Sun');
+  await page.keyboard.press('ArrowLeft');await expect(page.locator('#plaque-title')).toHaveText('Plate 29');
   await page.keyboard.press('ArrowRight');
   await page.keyboard.press('Escape');await expect(first).toBeFocused();
   // Exercise every full-resolution plate without renaming or replacing source files.
@@ -57,7 +60,7 @@ test('folios, plaque, keyboard lifecycle, inquiry and AA scans',async ({page}) =
   await page.locator('.tile').first().click();
   for (const plate of catalog.plates) {
     await expect(page.locator('#plaque-title')).toHaveText(plate.title);
-    await expect(page.locator('.spec-plaque')).not.toContainText(/remaining|300 PPI|undefined|null/);
+    await expect(page.locator('.spec-plaque')).not.toContainText(/remaining|300 PPI|Archival Master|Limited Edition of 25|\$2,400|\$4,800|\$9,500|undefined|null/);
     const heldElevations = {'12':'10,800 FT','18':'10,114 FT','24':'11,200 FT','26':'11,500 FT','27':'11,520 FT'};
     if (heldElevations[plate.plate]) await expect(page.locator('#plaque-telemetry')).not.toContainText(heldElevations[plate.plate]);
     await page.locator('#lbImg').evaluate(i=>i.decode());
@@ -65,7 +68,7 @@ test('folios, plaque, keyboard lifecycle, inquiry and AA scans',async ({page}) =
   }
   await page.locator('#plaque-inquire-btn').click();
   await expect(page.locator('#concierge-drawer')).toHaveAttribute('open','');
-  await expect(page.locator('#inquiry-plate-input')).toHaveValue('Plate 01 — Cathedral of the White Bark');
+  await expect(page.locator('#inquiry-plate-input')).toHaveValue('Plate 01');
   await expect(page.locator('#inquiry-plate-input')).toBeFocused();
   expect(await page.evaluate(()=>document.body.style.overflow)).toBe('');
   expect(await page.locator('[inert]').count()).toBe(0);
@@ -77,8 +80,9 @@ test('folios, plaque, keyboard lifecycle, inquiry and AA scans',async ({page}) =
   await page.locator('#collector-form button').click();
   const email=decodeURIComponent((await emailRequest).url());
   expect(email).toContain('Collector Email: collector@example.com');
-  expect(email).toContain('Plate 01 — Cathedral of the White Bark');
+  expect(email).toContain('Plate 01');
   expect(email).toContain('II. Gallery Standard · 40 × 60 in');
+  for (const detail of ['Substrate / paper class','Paper weight in gsm','Archival lifespan rating','Hand-signature detail','Certificate of Authenticity and its matching registry ID','Edition policy, current price']) expect(email).toContain(detail);
   expect(errors).toEqual([]);
 });
 test('private viewing room images and AA scan',async ({page}) => {
